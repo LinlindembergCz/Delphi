@@ -301,7 +301,7 @@ begin
   MemoRepository.lines.Add('  private');
   MemoRepository.lines.Add('    _Repository' + Entity + ':IRepository<' + Entity + '>;');
   MemoRepository.lines.Add('  public');
-  MemoRepository.lines.Add('    Constructor Create(dbContext:TContext);');
+  MemoRepository.lines.Add('    Constructor Create(dbContext:TContext);override;');
   MemoRepository.lines.Add('    function GetEntity: ' + Entity + ';');
   MemoRepository.lines.Add('  end;');
   MemoRepository.lines.Add('');

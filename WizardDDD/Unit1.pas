@@ -510,7 +510,7 @@ begin
                     '',
                     '',
                     '//tpEntity: result:= RepositoryEntity.TRepositoryEntity;',
-                    '    tp'+Entity+' : result:= '+ quotedstr( 'Repository' + Entity+'.'+Entity)+';',
+                    '    tp'+Entity+' : result:= '+ quotedstr( 'Repository' + Entity+'.TRepository'+Entity)+';',
                     save );
 end;
 
@@ -520,7 +520,7 @@ begin
                     '',
                     '',
                     '//tpEntity: result:= ServiceEntity.TServiceEntity;',
-                    '    tp'+Entity+' : result:= '+ quotedstr( 'Service' + Entity+'.'+Entity)+';',
+                    '    tp'+Entity+' : result:= '+ quotedstr( 'Service' + Entity+'.TService'+Entity)+';',
                     save );
 end;
 
@@ -530,7 +530,7 @@ begin
                     '',
                     '',
                     '//tpEntity: result:= ControllerEntity.TControllerEntity;',
-                     '    tp'+Entity+' : result:= '+ quotedstr( 'Controller' + Entity+'.'+Entity)+';',
+                     '    tp'+Entity+' : result:= '+ quotedstr( 'Controller' + Entity+'.TController'+Entity)+';',
                     save );
 end;
 

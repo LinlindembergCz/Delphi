@@ -1,0 +1,24 @@
+unit classUsuario
+
+interface
+
+uses
+  Dialogs, SysUtils, EntityBase, EntityTypes, Atributies;
+
+type
+  [EntityTable(Usuario)]
+  Usuario = class( TEntityBase )
+  private
+    FID: TInteger;
+    FLogin: TString;
+    FSenha: TString;
+
+  public
+     property ID TInteger read FID write FID;
+     property Login TString read FLogin write FLogin;
+     property Senha TString read FSenha write FSenha;
+  end;
+
+implementation
+
+end.

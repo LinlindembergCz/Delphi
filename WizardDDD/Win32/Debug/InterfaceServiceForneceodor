@@ -1,0 +1,15 @@
+unit InterfaceServiceForneceodor;
+
+interface
+
+uses
+InterfaceService;
+
+type
+  IServiceForneceodor = interface(IService)
+
+ end;
+
+implementation
+
+end.

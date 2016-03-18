@@ -1,0 +1,18 @@
+unit ServiceUsuario;
+
+interface
+
+uses
+System.Classes, ServiceBase, InterfaceServiceUsuario, EnumEntity;
+
+type
+  TServiceUsuario=class( TServiceBase , IServiceUsuario)
+  public
+
+  end;
+
+implementation
+
+{ ServiceUsuario }
+
+end.

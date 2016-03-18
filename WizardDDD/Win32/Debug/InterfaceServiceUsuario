@@ -1,0 +1,15 @@
+unit InterfaceServiceUsuario;
+
+interface
+
+uses
+InterfaceService;
+
+type
+  IServiceUsuario = interface(IService)
+
+ end;
+
+implementation
+
+end.

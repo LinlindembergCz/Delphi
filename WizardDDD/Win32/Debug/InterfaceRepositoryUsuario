@@ -1,0 +1,15 @@
+unit InterfaceRepositoryUsuario;
+
+interface
+
+uses
+InterfaceRepository,classUsuario;
+
+type
+  IRepositoryUsuario = interface(IRepositoryBase)
+    function GetEntity: Usuario;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,18 @@
+unit ServiceForneceodor;
+
+interface
+
+uses
+System.Classes, ServiceBase, InterfaceServiceForneceodor, EnumEntity;
+
+type
+  TServiceForneceodor=class( TServiceBase , IServiceForneceodor)
+  public
+
+  end;
+
+implementation
+
+{ ServiceForneceodor }
+
+end.

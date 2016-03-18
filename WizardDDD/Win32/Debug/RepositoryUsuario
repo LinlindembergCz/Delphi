@@ -1,0 +1,33 @@
+unit RepositoryUsuario;
+
+interface
+
+uses
+Repository, classUsuario, RepositoryBase, InterfaceRepositoryCliente, InterfaceRepository,  Context, EntityBase;
+
+type
+  TRepositoryUsuario = class(TRepositoryBase ,IRepositoryUsuario)
+  private
+    _RepositoryUsuario:IRepository<Usuario>;
+  public
+    Constructor Create(dbContext:TContext);
+    function GetEntity: Usuario;
+  end;
+
+implementation
+
+{ TRepositoryUsuario }
+
+constructor TRepositoryUsuario.Create(dbContext:TContext);
+begin
+  _RepositoryUsuario := TRepository<Usuario>.create(dbContext) ;
+  _RepositoryBase    := _RepositoryUsuario As IRepository<TEntityBase>;
+  //_RepositoryBase    :=  TRepository<Usuario>.create(dbContext) As IRepository<TEntityBase>;
+end;
+
+function TRepositoryUsuario.GetEntity: Usuario;
+begin
+  result:= _RepositoryUsuario.Entity;
+end;
+
+End.

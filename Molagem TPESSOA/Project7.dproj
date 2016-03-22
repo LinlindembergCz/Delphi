@@ -1,0 +1,236 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{a3b88c31-4b97-419a-919c-59c0ea3f0d23}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>Project7.exe</DCC_DependencyCheckOutputName>
+    <MainSource>Project7.dpr</MainSource>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""> <Delphi.Personality>   <Parameters>
+      <Parameters Name="UseLauncher">False</Parameters>
+      <Parameters Name="LoadAllSymbols">True</Parameters>
+      <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+    </Parameters>
+    <VersionInfo>
+      <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+      <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+      <VersionInfo Name="MajorVer">1</VersionInfo>
+      <VersionInfo Name="MinorVer">0</VersionInfo>
+      <VersionInfo Name="Release">0</VersionInfo>
+      <VersionInfo Name="Build">0</VersionInfo>
+      <VersionInfo Name="Debug">False</VersionInfo>
+      <VersionInfo Name="PreRelease">False</VersionInfo>
+      <VersionInfo Name="Special">False</VersionInfo>
+      <VersionInfo Name="Private">False</VersionInfo>
+      <VersionInfo Name="DLL">False</VersionInfo>
+      <VersionInfo Name="Locale">1046</VersionInfo>
+      <VersionInfo Name="CodePage">1252</VersionInfo>
+    </VersionInfo>
+    <VersionInfoKeys>
+      <VersionInfoKeys Name="CompanyName"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileDescription"></VersionInfoKeys>
+      <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="InternalName"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys>
+      <VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys>
+      <VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductName"></VersionInfoKeys>
+      <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+      <VersionInfoKeys Name="Comments"></VersionInfoKeys>
+    </VersionInfoKeys>
+    <Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\..\TeeTree\Compiled\Delphi11\Bin\DclTree2D11Tee8.bpl">TeeTree 2 Components</Excluded_Packages>
+      <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl">File D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl not found</Excluded_Packages>
+    </Excluded_Packages>
+    <Source>
+      <Source Name="MainSource">Project7.dpr</Source>
+    </Source>
+  </Delphi.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <ItemGroup />
+  <ItemGroup>
+    <DelphiCompile Include="Project7.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="Unit6.pas">
+      <Form>Form6</Form>
+    </DCCReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+</Project>

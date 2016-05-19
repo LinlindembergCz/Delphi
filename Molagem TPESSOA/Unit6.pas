@@ -4,154 +4,160 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs;
+  Dialogs, Vcl.StdCtrls;
 
 type
   TForm6 = class(TForm)
-    procedure FormCreate(Sender: TObject);
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
+  //Pra não criar outros arquivos para cada classe usei essa tecnica bem legal do Delphi!
 
+  TPessoaFisica = class;
+  TPessoaJuridica = class;
+  TCliente = class;
+  TFornecedor = class;
+  TFabricante = class;
+
+  //Esta é classe Super todos Herdam direta ou indiretamente de TEntidade
   TEntidade = class
-  end;
-
-  TPessoa  = class (TEntidade)
   private
     FId: integer;
-    procedure SetId(const Value: integer);
-  published
   public
-    property Id:integer read FId write SetId;
+    property Id: integer read FId write FId;
   end;
 
+  //Este é o objeto de valor que representara o endereço dos respectivos Esteriotipo!
+  TEndereco = class(TEntidade)
+  private
+    Frua: string;
+  public
+     property  Rua: string read Frua write Frua;
+     //property Bairro
+     //property Cidade
+     //....
+  end;
+
+  //Esta é a classe que representará o Esteriotipo da Pessoa, pode se chamado
+  //tambem de resposabilidade , Titulo, Papel..
+  TEsteriotipo = class(TEntidade)
+  private
+    FEndereco: TEndereco;
+    FPessoaFisica: TPessoaFisica;
+    FPessoaJuridica: TPessoaJuridica;
+  public
+    property  Endereco:TEndereco read FEndereco write FEndereco;
+   //Preferi referenciar em TEsteriotipo a composicao PessoaFisica ou PessoaJuridica,
+   //mas poderia ser referenciado em cada esteriotipo descendente se necessário.
+    property PessoaFisica: TPessoaFisica      read FPessoaFisica write FPessoaFisica;
+    property PessoaJuridica: TPessoaJuridica  read FPessoaJuridica write FPessoaJuridica;
+    constructor Create;
+  end;
+
+  //A classe Base de todas as pessoas representada no seu sistema
+  TPessoa  = class (TEntidade)
+  private
+    FCliente : TCliente;
+    FFornecedor: TFornecedor;
+    FFabricante: TFabricante;
+  public
+    // Uma pessoa pode ser, se necessário, uma coposicao de Cliente, Fornecedor , fabricante...
+    property Cliente: TCliente  read FCliente write FCliente;
+    property Fornecedor:TFornecedor  read FFornecedor write FFornecedor;
+    property Fabricante: TFabricante read FFabricante write FFabricante;
+    constructor Create;
+  end;
+
+  //aqui estará os atributos inerentes a pessoa fisica
   TPessoaFisica = class(TPessoa)
   private
     FCPF: string;
-    procedure SetCPF(const Value: string);
-  published
   public
-    property CPF: string read FCPF write SetCPF;
+    property CPF: string read FCPF write FCPF;
   end;
-
+  //aqui estará os atributos inerentes a pessoa juridica
   TPessoaJuridica = class(TPessoa)
   private
     FCNPJ: string;
-    procedure SetCNPJ(const Value: string);
-  published
   public
-    property CNPJ: string read FCNPJ write SetCNPJ;
+    property CNPJ: string read FCNPJ write FCNPJ;
   end;
 
-  TPapel = class
-  public
-    Papel:TPessoa;
-  end;
-
-  TEndereco = class
+  //Agora o pulo do GATO!
+  TCliente = class(TEsteriotipo)
   private
-    FEndereco: string;
-    procedure SetEndereco(const Value: string);
-  published
+    Fidade: integer;
   public
-    property Descricao: string read FEndereco write SetEndereco;
+    property  idade:integer read Fidade write Fidade;
   end;
 
-  TCliente = class(TPapel)
+  TFornecedor = class(TEsteriotipo)
   private
-    FTipoCliente: string;
-    FEndereco: TEndereco;
-    procedure SetEndereco(const Value: TEndereco);
-    procedure SetTipoCliente(const Value: string);
-  published
+    FSegmento: string;
   public
-    property TipoCliente: string read FTipoCliente write SetTipoCliente;
-    property Endereco: TEndereco read FEndereco write SetEndereco;
+    property  Segmento:string read FSegmento write FSegmento;
   end;
 
-  TFornecedor = class(TPapel)
+  TFabricante =class(TEsteriotipo)
   private
-    FEndereco: TEndereco;
-    procedure SetEndereco(const Value: TEndereco);
-  published
+    FValidade: TDatetime;
   public
-    property Endereco: TEndereco read FEndereco write SetEndereco;
+    property Validade: TDatetime read FValidade write FValidade;
   end;
 
-  TFuncionario = class(TPapel)
-
-  end;
-
-
-
-var
-  Form6: TForm6;
+  var
+   Form6: TForm6;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm6.FormCreate(Sender: TObject);
+
+procedure TForm6.Button1Click(Sender: TObject);
 var
-   Cliente:TCliente;
-   Fornecedor:TFornecedor;
+  Pessoa: TPessoa;
 begin
-   cliente.Endereco.Descricao;
-   cliente.Papel.Id;
+  Pessoa:=TPessoa.Create;
 
-   TPessoaFisica(cliente.Papel).CPF;
+  Pessoa.Cliente.idade:= 40;
+  Pessoa.Cliente.PessoaFisica.CPF:='000000000000';
+  Pessoa.Cliente.PessoaJuridica.CNPJ:='000000000000';
+  Pessoa.Cliente.Endereco.rua:='xxxxxxxxxxxxxxx';
 
-   Fornecedor.Endereco.Descricao;
-   TPessoaJuridica(Fornecedor.Papel).CNPJ;
+  Pessoa.Fornecedor.Segmento:='Informatica';
+  Pessoa.Fornecedor.PessoaFisica.CPF:='000000000000';
+  Pessoa.Fornecedor.PessoaJuridica.CNPJ:='000000000000';
+  Pessoa.Fornecedor.Endereco.rua:='yyyyyyyyyyy';
+
+
+  Pessoa.Fabricante.Validade:= now + 360;
+  Pessoa.Fabricante.PessoaJuridica.CNPJ:='000000000000';
+  Pessoa.Fabricante.Endereco.rua:='zzzzzzzzzzzzzz';
+
+  Pessoa.Free;
+
 end;
+
 
 { TPessoa }
 
-procedure TPessoa.SetId(const Value: integer);
+constructor TPessoa.Create;
 begin
-  FId := Value;
+  FCliente := TCliente.Create;
+  FFornecedor:= TFornecedor.Create;
+  FFabricante:= TFabricante.Create;
 end;
 
-{ TCliente }
+{ TEsteriotipo }
 
-procedure TCliente.SetEndereco(const Value: TEndereco);
+constructor TEsteriotipo.Create;
 begin
-  FEndereco := Value;
-end;
 
-procedure TCliente.SetTipoCliente(const Value: string);
-begin
-  FTipoCliente := Value;
-end;
-
-{ TEndereco }
-
-procedure TEndereco.SetEndereco(const Value: string);
-begin
-  FEndereco := Value;
-end;
-
-{ TPessoaFisica }
-
-procedure TPessoaFisica.SetCPF(const Value: string);
-begin
-  FCPF := Value;
-end;
-
-{ TPessoaJuridica }
-
-procedure TPessoaJuridica.SetCNPJ(const Value: string);
-begin
-  FCNPJ := Value;
-end;
-
-{ TFornecedor }
-
-procedure TFornecedor.SetEndereco(const Value: TEndereco);
-begin
-  FEndereco := Value;
 end;
 
 end.
+

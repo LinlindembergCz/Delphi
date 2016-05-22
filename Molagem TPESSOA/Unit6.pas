@@ -15,8 +15,8 @@ type
   public
     { Public declarations }
   end;
-  //Pra não criar outros arquivos para cada classe usei essa tecnica bem legal do Delphi!
 
+  //Pra não criar outros arquivos para cada classe usei essa tecnica bem legal do Delphi!
   TPessoaFisica = class;
   TPessoaJuridica = class;
   TCliente = class;
@@ -55,7 +55,8 @@ type
    //mas poderia ser referenciado em cada esteriotipo descendente se necessário.
     property PessoaFisica: TPessoaFisica      read FPessoaFisica write FPessoaFisica;
     property PessoaJuridica: TPessoaJuridica  read FPessoaJuridica write FPessoaJuridica;
-    constructor Create;
+    constructor Create;virtual;
+    destructor Destroy;override;
   end;
 
   //A classe Base de todas as pessoas representada no seu sistema
@@ -65,11 +66,12 @@ type
     FFornecedor: TFornecedor;
     FFabricante: TFabricante;
   public
+    constructor Create;virtual;
+    destructor Destroy;override;
     // Uma pessoa pode ser, se necessário, uma coposicao de Cliente, Fornecedor , fabricante...
     property Cliente: TCliente  read FCliente write FCliente;
     property Fornecedor:TFornecedor  read FFornecedor write FFornecedor;
     property Fabricante: TFabricante read FFabricante write FFabricante;
-    constructor Create;
   end;
 
   //aqui estará os atributos inerentes a pessoa fisica
@@ -78,13 +80,16 @@ type
     FCPF: string;
   public
     property CPF: string read FCPF write FCPF;
+    constructor Create;override;
   end;
+
   //aqui estará os atributos inerentes a pessoa juridica
   TPessoaJuridica = class(TPessoa)
   private
     FCNPJ: string;
   public
     property CNPJ: string read FCNPJ write FCNPJ;
+    constructor Create;override;
   end;
 
   //Agora o pulo do GATO!
@@ -100,6 +105,7 @@ type
     FSegmento: string;
   public
     property  Segmento:string read FSegmento write FSegmento;
+    //constructor Create;
   end;
 
   TFabricante =class(TEsteriotipo)
@@ -107,6 +113,7 @@ type
     FValidade: TDatetime;
   public
     property Validade: TDatetime read FValidade write FValidade;
+    //constructor Create;
   end;
 
   var
@@ -121,6 +128,8 @@ procedure TForm6.Button1Click(Sender: TObject);
 var
   Pessoa: TPessoa;
 begin
+  //Não precisarei fazer uses de cada classe aumentando o acoplamento.
+  //Uma pessoa pode assumir os varios esteriotipos
   Pessoa:=TPessoa.Create;
 
   Pessoa.Cliente.idade:= 40;
@@ -133,7 +142,6 @@ begin
   Pessoa.Fornecedor.PessoaJuridica.CNPJ:='000000000000';
   Pessoa.Fornecedor.Endereco.rua:='yyyyyyyyyyy';
 
-
   Pessoa.Fabricante.Validade:= now + 360;
   Pessoa.Fabricante.PessoaJuridica.CNPJ:='000000000000';
   Pessoa.Fabricante.Endereco.rua:='zzzzzzzzzzzzzz';
@@ -142,19 +150,50 @@ begin
 
 end;
 
-
 { TPessoa }
 
 constructor TPessoa.Create;
 begin
-  FCliente := TCliente.Create;
-  FFornecedor:= TFornecedor.Create;
-  FFabricante:= TFabricante.Create;
+  FCliente    := TCliente.Create;
+  FFornecedor := TFornecedor.Create;
+  FFabricante := TFabricante.Create;
+end;
+
+destructor TPessoa.Destroy;
+begin
+  inherited;
+  FCliente.free;
+  FFornecedor.free;
+  FFabricante.free;
 end;
 
 { TEsteriotipo }
 
 constructor TEsteriotipo.Create;
+begin
+  Endereco:= TEndereco.create;
+  PessoaFisica:= TPessoaFisica.create;
+  PessoaJuridica:= TPessoaJuridica.create;
+end;
+
+destructor TEsteriotipo.Destroy;
+begin
+  inherited;
+  FEndereco.free;
+  FPessoaFisica.free;
+  FPessoaJuridica.free;
+end;
+
+{ TPessoaFisica }
+
+constructor TPessoaFisica.Create;
+begin
+
+end;
+
+{ TPessoaJuridica }
+
+constructor TPessoaJuridica.Create;
 begin
 
 end;

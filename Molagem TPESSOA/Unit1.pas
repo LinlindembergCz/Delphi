@@ -1,4 +1,4 @@
-unit Unit6;
+unit Unit1;
 
 interface
 
@@ -6,17 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Vcl.StdCtrls, System.Generics.Collections;
 
-type
-  TForm6 = class(TForm)
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
-  private
-    { Private declarations }
-  public
-    { Public declarations }
-  end;
 
-  //Pra não criar outros arquivos para cada classe usei essa tecnica bem legal do Delphi!
+type
+ //Pra não criar outros arquivos para cada classe usei essa tecnica bem legal do Delphi!
   TPessoaFisica = class;
   TPessoaJuridica = class;
   TCliente = class;
@@ -53,19 +45,19 @@ type
   TUF =class
   private
     FDescricao: string;
-    FMunicipio: TList<TMunicipio>;
+    FMunicipio: TMunicipio;
   public
     property Descricao: string read FDescricao write FDescricao ;
-    property Municipio: TList<TMunicipio> read FMunicipio write FMunicipio ;
+    property Municipio: TMunicipio read FMunicipio write FMunicipio ;
   end;
 
   TMunicipio =class
   private
     FDescricao: string;
-    FBairro:TList<TBairro>;
+    FBairro:TBairro;
   public
     property Descricao: string  read FDescricao write FDescricao ;
-    property Bairro: TList<TBairro> read FBairro write FBairro ;
+    property Bairro: TBairro read FBairro write FBairro ;
   end;
 
   TBairro =class
@@ -81,7 +73,7 @@ type
     FNumero: string;
     FBairro: TBairro;
   public
-     property Bairro: TList<TBairro> read FBairro write FBairro;
+     property Bairro: TBairro read FBairro write FBairro;
      property Rua: string read Frua write Frua;
      property Numero: string  read FNumero write FNumero;
   end;
@@ -168,51 +160,8 @@ type
     //constructor Create;
   end;
 
-  var
-   Form6: TForm6;
-
 implementation
 
-{$R *.dfm}
-
-
-procedure TForm6.Button1Click(Sender: TObject);
-var
-  Pessoa: TPessoa;
-  Cobranca: TEnderecoCobranca;
-  Localizacao:TLocalizacao;
-begin
-  //Não precisarei fazer uses de cada classe aumentando o acoplamento.
-  //Uma pessoa pode assumir os varios esteriotipos
-  Pessoa:=TPessoa.Create;
-
-  Pessoa.Cliente.idade:= 40;
-  Pessoa.Cliente.PessoaFisica.CPF:='000000000000';
-  Pessoa.Cliente.PessoaJuridica.CNPJ:='000000000000';
-  Pessoa.Cliente.Localizacao.Rua:='xxxxxxxxxxxxxxx';
-  Pessoa.Fornecedor.Segmento:='Informatica';
-  Pessoa.Fornecedor.PessoaFisica.CPF:='000000000000';
-  Pessoa.Fornecedor.PessoaJuridica.CNPJ:='000000000000';
-  Pessoa.Fornecedor.Localizacao.Rua:='yyyyyyyyyyy';
-  Pessoa.Fabricante.Validade:= now + 360;
-  Pessoa.Fabricante.PessoaJuridica.CNPJ:='000000000000';
-  Pessoa.Fabricante.Localizacao.Rua:='zzzzzzzzzzzzzz';
-
-  Cobranca:= TEnderecoCobranca.Create;
-  Localizacao:= TLocalizacao.Create;
-  Localizacao.Rua:='YYYYYYYYYY';
-  Cobranca.Localizacao := Localizacao;
-  Cobranca.Esteriotipo      := Pessoa.Cliente;
-
-  Pessoa.Cliente.EnderecosCobranca.Add( Cobranca );
-
-  showmessage(
-    'Endereco do Cliente:'+ Pessoa.Cliente.localizacao.Rua +#13+
-    'Endereco de Cobranca do Cliente:'+ Pessoa.Cliente.EnderecosCobranca.Items[0].Localizacao.Rua );
-
-  Pessoa.Free;
-
-end;
 
 { TPessoa }
 
@@ -266,5 +215,5 @@ begin
 
 end;
 
-end.
 
+end.

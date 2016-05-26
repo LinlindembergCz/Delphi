@@ -1,236 +1,570 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectGuid>{a3b88c31-4b97-419a-919c-59c0ea3f0d23}</ProjectGuid>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>Project7.exe</DCC_DependencyCheckOutputName>
-    <MainSource>Project7.dpr</MainSource>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Version>7.0</Version>
-    <DCC_DebugInformation>False</DCC_DebugInformation>
-    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
-    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
-    <DCC_Define>RELEASE</DCC_Define>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <Version>7.0</Version>
-    <DCC_Define>DEBUG</DCC_Define>
-  </PropertyGroup>
-  <ProjectExtensions>
-    <Borland.Personality>Delphi.Personality</Borland.Personality>
-    <Borland.ProjectType />
-    <BorlandProject>
-<BorlandProject xmlns=""> <Delphi.Personality>   <Parameters>
-      <Parameters Name="UseLauncher">False</Parameters>
-      <Parameters Name="LoadAllSymbols">True</Parameters>
-      <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
-    </Parameters>
-    <VersionInfo>
-      <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
-      <VersionInfo Name="AutoIncBuild">False</VersionInfo>
-      <VersionInfo Name="MajorVer">1</VersionInfo>
-      <VersionInfo Name="MinorVer">0</VersionInfo>
-      <VersionInfo Name="Release">0</VersionInfo>
-      <VersionInfo Name="Build">0</VersionInfo>
-      <VersionInfo Name="Debug">False</VersionInfo>
-      <VersionInfo Name="PreRelease">False</VersionInfo>
-      <VersionInfo Name="Special">False</VersionInfo>
-      <VersionInfo Name="Private">False</VersionInfo>
-      <VersionInfo Name="DLL">False</VersionInfo>
-      <VersionInfo Name="Locale">1046</VersionInfo>
-      <VersionInfo Name="CodePage">1252</VersionInfo>
-    </VersionInfo>
-    <VersionInfoKeys>
-      <VersionInfoKeys Name="CompanyName"></VersionInfoKeys>
-      <VersionInfoKeys Name="FileDescription"></VersionInfoKeys>
-      <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
-      <VersionInfoKeys Name="InternalName"></VersionInfoKeys>
-      <VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys>
-      <VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys>
-      <VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys>
-      <VersionInfoKeys Name="ProductName"></VersionInfoKeys>
-      <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
-      <VersionInfoKeys Name="Comments"></VersionInfoKeys>
-    </VersionInfoKeys>
-    <Excluded_Packages>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl not found</Excluded_Packages>
-      <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\..\TeeTree\Compiled\Delphi11\Bin\DclTree2D11Tee8.bpl">TeeTree 2 Components</Excluded_Packages>
-      <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl">File D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl not found</Excluded_Packages>
-    </Excluded_Packages>
-    <Source>
-      <Source Name="MainSource">Project7.dpr</Source>
-    </Source>
-  </Delphi.Personality> </BorlandProject></BorlandProject>
-  </ProjectExtensions>
-  <ItemGroup />
-  <ItemGroup>
-    <DelphiCompile Include="Project7.dpr">
-      <MainSource>MainSource</MainSource>
-    </DelphiCompile>
-    <DCCReference Include="Unit6.pas">
-      <Form>Form6</Form>
-    </DCCReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+    <PropertyGroup>
+        <ProjectGuid>{a3b88c31-4b97-419a-919c-59c0ea3f0d23}</ProjectGuid>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+        <DCC_DependencyCheckOutputName>Project7.exe</DCC_DependencyCheckOutputName>
+        <MainSource>Project7.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>16.1</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <SanitizedProjectName>Project7</SanitizedProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>Project7_Icon.ico</Icon_MainIcon>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <Icon_MainIcon>Project7_Icon.ico</Icon_MainIcon>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <Version>7.0</Version>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <Version>7.0</Version>
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Parameters>
+                    <Parameters Name="UseLauncher">False</Parameters>
+                    <Parameters Name="LoadAllSymbols">True</Parameters>
+                    <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+                </Parameters>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1046</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxEditorFieldLinkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarDBNavRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtDBItemsRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxBarExtItemsRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxRibbonRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxBarEditItemRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxdbtrRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxtrmdRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDockingRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxFlowChartRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControlRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPageControldxBarPopupMenuRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxTabbedMDIRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxLayoutControlRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxNavBarRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxOrgCRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxDBOrRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxGridRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridChartRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxPivotGridOLAPRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxTreeListdxBarPopupMenuRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSchedulerGridRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsCoreRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsDesignHelperRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxPCPainterRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxSchedulerPainterRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxBarsPaintersRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinsdxNavBarPainterRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSkinscxEditorsHelperRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxSpellCheckerRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxSpreadSheetRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dclcxVerticalGridRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSLnksRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxCommonRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxExtCommonRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxGridLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxPivotGridLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSchedulerLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxSSLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxTLLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPScxVGridLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxOCLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBOCLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxDBTVLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSdxFCLnkRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxPScxPCProdRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwAdvRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dcldxPSPrVwRibbonRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl">File C:\Users\Producao04\Documents\DevExpress VCL\Library\RS11\dxSkinsdxRibbonPainterRS11.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\..\TeeTree\Compiled\Delphi11\Bin\DclTree2D11Tee8.bpl">TeeTree 2 Components</Excluded_Packages>
+                    <Excluded_Packages Name="D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl">File D:\Producao\Compartilhados\Componentes\D2007\TeeChart 8.06.FullSource\Sources\Compiled\Delphi11\Bin\DclTee8QR5D11.bpl not found</Excluded_Packages>
+                </Excluded_Packages>
+                <Source>
+                    <Source Name="MainSource">Project7.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+            <Deployment>
+                <DeployFile LocalName="ModelSupport_Project7\Project7\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_Project7\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_Project7\Unit1\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_Project7\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Project7.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Project7.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_Project7\Unit1\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployClass Required="true" Name="DependencyPackage">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch2048">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXInfoPList">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceDebug">
+                    <Platform Name="iOSDevice">
+                        <RemoteDir>..\$(PROJECTNAME).app.dSYM\Contents\Resources\DWARF</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage470">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-normal</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeX86File">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\x86</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSResource">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXEntitlements">
+                    <Platform Name="OSX32">
+                        <RemoteDir>../</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidGDBServer">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xlarge</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon96">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch320">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon144">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-xxhdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeMipsFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\mips</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashImageDef">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DebugSymbols">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="DependencyFramework">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.framework</Extensions>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage426">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-small</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSEntitlements">
+                    <Platform Name="iOSDevice">
+                        <RemoteDir>../</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AdditionalDebugSymbols">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidClassesDexFile">
+                    <Platform Name="Android">
+                        <RemoteDir>classes</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSInfoPList">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1024">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_DefaultAppIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectOSXResource">
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\Resources</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch768">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Required="true" Name="ProjectOutput">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi-v7a</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidLibnativeArmeabiFile">
+                    <Platform Name="Android">
+                        <RemoteDir>library\lib\armeabi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_SplashImage640">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-large</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="File">
+                    <Platform Name="iOSDevice">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Android">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>0</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>0</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPhone_Launch640x1136">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon36">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-ldpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="AndroidSplashStyles">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="iPad_Launch1536">
+                    <Platform Name="iOSDevice">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon48">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-mdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_LauncherIcon72">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-hdpi</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="ProjectAndroidManifest">
+                    <Platform Name="Android">
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSDevice" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+            </Deployment>
+            <ModelSupport>True</ModelSupport>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Unit6.pas">
+            <Form>Form6</Form>
+        </DCCReference>
+        <DCCReference Include="Unit1.pas"/>
+        <None Include="ModelSupport_Project7\default.txaPackage"/>
+        <None Include="ModelSupport_Project7\default.txvpck"/>
+        <None Include="ModelSupport_Project7\Unit1\default.txvpck"/>
+        <None Include="ModelSupport_Project7\Project7\default.txvpck"/>
+        <None Include="ModelSupport_Project7\Unit1\default.txaPackage"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ItemGroup/>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+    <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
 </Project>

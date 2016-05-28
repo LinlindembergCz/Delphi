@@ -7,7 +7,7 @@ uses
   ACBrUtil, ACBrNFeDANFEClass, ACBrNFeDANFeESCPOS, ACBrBase, ACBrDFe, XMLIntf,
   XMLDoc, zlib, ACBrMail, ACBrNFeDANFeRLClass, ACBrDANFCeFortesFr, pcnConversaoNFe,
   ACBrDFeSSL, ACBrNFeConfiguracoes, uClassServicoDocumentoFiscalEletronico,
-  uClassNotaFiscal, uClassItemNotaFiscal , pcnAuxiliar, IniFiles;
+  uClassNotaFiscal, uClassItemNotaFiscal , pcnAuxiliar, IniFiles, DBClient;
 
 type
   TFactoryServicoDocumentoFiscalEletronico = class
@@ -55,8 +55,8 @@ begin
       Geral.IncluirQRCodeXMLNFCe := true;
       Geral.FormatoAlerta        := 'TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.';
       Geral.SSLLib               := libCapicom;//(libNone, libOpenSSL, libCapicom, libCapicomDelphiSoap);
-    //Geral.IdCSC                := goEmpresa.IDTokenDFe;
-    //Geral.CSC                  := goEmpresa.TokenDFe;
+      Geral.IdCSC                := goEmpresa.IDTokenDFe;
+      Geral.CSC                  := goEmpresa.TokenDFe;
       Certificados.ArquivoPFX    := goEmpresa.CertificadoDFe;
     //Certificados.Senha         := goEmpresa.SenhaDFe;
       Certificados.NumeroSerie   := uppercase( goEmpresa.NumeroSerieDFe);
@@ -138,7 +138,8 @@ begin
   //Preencher os Objetos do ABCBR conforme as diretrizes do serviço NFC
     PreencherIde( Servico, proNotaFiscal);
     PreencherEmitente( Servico, proNotaFiscal);
-    PreencherDest( Servico, proNotaFiscal);
+    if proNotaFiscal.COD_CLIENTE <> '00001' then
+       PreencherDest( Servico, proNotaFiscal);
     PreencherItens( Servico, proNotaFiscal);
     PreencherTotal( Servico, proNotaFiscal);
     PreencherPag( Servico, proNotaFiscal);
@@ -174,7 +175,10 @@ begin
       cUF       := UFtoCUF(goEmpresa.Endereco.Uf.Descricao);
       cMunFG    := StrToInt(goEmpresa.Endereco.MunicipioIbge.Codigo);
       finNFe    := fnNormal;
-      tpImp     := tiNFCe;
+      if proNotaFiscal.Especie = 'NFE' then
+         tpImp  := tiRetrato
+      else
+         tpImp  := tiNFCe;
       indFinal  := cfConsumidorFinal;
       indPres   := pcPresencial;
    end;
@@ -232,12 +236,28 @@ begin
 end;
 
 class procedure TFactoryServicoDocumentoFiscalEletronico.PreencherPag(Servico: TServicoDocumentoFiscalEletronico; proNotaFiscal: TNotaFiscal);
+var
+   cds:TClientDataSet;
 begin
-    with Servico.DocumentoFiscal.Pag.Add do
-    begin
-      tPag := fpDinheiro;
-      vPag := proNotaFiscal.VLR_TOTAL;
-    end;
+   with Servico.DocumentoFiscal.Pag.Add do
+   begin
+      try
+         {cds  := gConexao.GetDataSet('T_TPPGTOS','TIPO_COBRANCA','Codigo='+
+                                      quotedstr(proNotaFiscal.Cod_TpPgto),
+                                      nil,
+                                      '' );}
+         tPag := fpDinheiro;
+         {case cds.fieldbyname('TIPO_COBRANCA').AsInteger of
+           2 : tPag := fpCartaoCredito;
+           3 : tPag := fpCheque;
+           4 : tPag := fpCartaoDebito;
+           //: tPag := fpOutro;
+         end;}
+         vPag := proNotaFiscal.VLR_TOTAL;
+      finally
+        //cds.free;
+      end;
+   end;
 end;
 
 class procedure TFactoryServicoDocumentoFiscalEletronico.PreencherItens(Servico: TServicoDocumentoFiscalEletronico; proNotaFiscal: TNotaFiscal);

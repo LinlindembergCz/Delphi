@@ -46,7 +46,9 @@ type
     function VerificarStatusServico: boolean;
     procedure ConfigurarContingencia(Data: TDatetime);
     function Cancelar(SeqNotaFiscal, Especie, Serie, prsChaveAcesso, Justificativa, Protocolo, LoteNFe: String): Boolean;
-    procedure Imprimir( prsChaveAcesso : String );    
+    procedure Imprimir( prsChaveAcesso : String );
+    function AmbienteHomologacao: boolean;
+    function AmbienteProducao: boolean;
   end;
 
 
@@ -102,7 +104,9 @@ begin
       Geral.IncluirQRCodeXMLNFCe := ConfiguracoesNFe.Geral.IncluirQRCodeXMLNFCe;//true;
       Arquivos.PathSalvar        := ConfiguracoesNFe.Arquivos.PathSalvar;//'D:\Lindemberg\Delphi\NFCe\';
       Arquivos.PathSchemas       := ConfiguracoesNFe.Arquivos.PathSchemas;//'D:\Producao\Componentes\D2007\ACBR\Exemplos\ACBrDFe\Schemas\NFe\';
-    //Certificados.ArquivoPFX    := ConfiguracoesNFe.Certificados.ArquivoPFX;//'D:\Producao\Postos\Programa\certificado\Posto Santa Rita BA = SENHA 123mudar - Expira em 19-05-2016.pfx';
+      Certificados.ArquivoPFX    := ConfiguracoesNFe.Certificados.ArquivoPFX;//'D:\Producao\Postos\Programa\certificado\Posto Santa Rita BA = SENHA 123mudar - Expira em 19-05-2016.pfx';
+      Geral.CSC                  := ConfiguracoesNFe.Geral.CSC;
+      Geral.IdCSC                := ConfiguracoesNFe.Geral.IdCSC;
     //Certificados.Senha         := ConfiguracoesNFe.Certificados.Senha;//'123mudar';
       Certificados.NumeroSerie   := ConfiguracoesNFe.Certificados.NumeroSerie;//'32144a65a088464ba8861893c72082f9';
   {   Arquivos.PathSalvar        := 'D:\Lindemberg\Delphi\NFCe\';
@@ -186,9 +190,6 @@ begin
                                        StrToInt(psSerie),
                                        StrToInt(psNumeroInicial),
                                        StrToInt(psNumeroFinal) );
-
-       //FACBrNFe.InutNFe.LerXML('');
-       //FACBrNFe.ImprimirInutilizacao;
        result := true;
     Except
         On E: Exception Do
@@ -252,7 +253,8 @@ function TServicoDocumentoFiscalEletronico.EnviarEmailNF( prsEmailDestinatario :
 
 Var
   lslMensagens : TStringList;
-  lsAnexos:TStringList;
+  lstAnexos:TStringList;
+  lsArquivo:string;
 begin
    If prsEmailDestinatario = '' Then
    Begin
@@ -261,38 +263,30 @@ begin
    End;
 
    Try
-      lslMensagens := TStringList.Create;
-      lslMensagens.Add( Format('URI da nota fiscal: %s%s', [DocumentoFiscal.signature.URI, HTMLTag('br','')]) );
-      lslMensagens.Add( Format('Empresa: %s%s', [DocumentoFiscal.Emit.xNome, HTMLTag('br','')]) );
-      lslMensagens.Add( Format('CNPJ: %s', [DocumentoFiscal.Emit.CNPJCPF]) );
       Try
-         lsAnexos:= TStringList.create;
-         lsAnexos.Add( GetFileNameXML( GetChaveAcesso ) );
-
-         {FACBrNFe.NotasFiscais.Items[0].EnviarEmail(
-         prsEmailDestinatario,
-         Format('NFE - %s', [DocumentoFiscal.Emit.xNome]),
-         lslMensagens,
-         true,
-         nil,
-         lsAnexos ); }
-         if FACBrNFe.MAIL.Host <> '' then
+         //showmessage( 'Host '+ FACBrNFe.MAIL.Host+'  Email '+prsEmailDestinatario );
+         if (FACBrNFe.MAIL.Host <> '') and (prsEmailDestinatario <> '') then
          begin
-            FACBrNFe.EnviarEmail(
-            // Destinatario
-            prsEmailDestinatario,
-            // Assunto
-            Format('NFE - %s', [DocumentoFiscal.Emit.xNome]),
-            // Corpo do texto
-            lslMensagens,
-            // Envia PDF
-            nil,
-            // sCC
-            lsAnexos ,
-            // Lista de Anexos
-            nil );
-         end;
+            lslMensagens := TStringList.Create;
+            lslMensagens.Add( Format('URI da nota fiscal: %s%s', [DocumentoFiscal.signature.URI, HTMLTag('br','')]) );
+            lslMensagens.Add( Format('Empresa: %s%s', [DocumentoFiscal.Emit.xNome, HTMLTag('br','')]) );
+            lslMensagens.Add( Format('CNPJ: %s', [DocumentoFiscal.Emit.CNPJCPF]) );
+            lsArquivo:= GetFileNameXML( GetChaveAcesso );
 
+            if FileExists( lsArquivo ) then
+            begin
+               lstAnexos:= TStringList.create;
+               lstAnexos.Add( GetFileNameXML( GetChaveAcesso ) );
+            end;
+
+            FACBrNFe.EnviarEmail( prsEmailDestinatario,
+                                  Format('NFE - %s', [DocumentoFiscal.Emit.xNome]),
+                                  lslMensagens,
+                                  nil,
+                                  lstAnexos ,
+                                  nil );
+
+         end;
          Result := True;
       Except
          on E: Exception do
@@ -303,6 +297,8 @@ begin
       End;
    Finally
       FreeAndNil( lslMensagens );
+      if lstAnexos <> nil then
+      lstAnexos.free;
    End;
 end;
 
@@ -313,17 +309,31 @@ end;
 
 function TServicoDocumentoFiscalEletronico.VerificarStatusServico:boolean;
 begin
-   result := FACBrNFe.WebServices.StatusServico.Executar;
+  result := false;
+  try
+    result := FACBrNFe.WebServices.StatusServico.Executar;
+  except end;
 end;
 
 procedure TServicoDocumentoFiscalEletronico.ConfigurarContingencia(Data:TDatetime);
 begin
   with DocumentoFiscal.Ide do
   begin
-     tpEmis := teContingencia;
+     tpEmis := teOffLine;
      dhCont := StrToDatetime( FormatDatetime('DD/MM/YYYY ',Data )+ FormatDatetime('HH:MM:SS ', Time) );
      xJust  := 'COMUNICAÇÃO INDISPONIVEL COM SERVIDOR DO SEFAZ';
   end;
+  DocumentoFiscal.InfAdic.infAdFisco := 'EMITIDA EM CONTINGÊNCIA';
+end;
+
+function TServicoDocumentoFiscalEletronico.AmbienteHomologacao: boolean;
+begin
+   result:= FACBrNFe.Configuracoes.WebServices.AmbienteCodigo = 2;
+end;
+
+function TServicoDocumentoFiscalEletronico.AmbienteProducao: boolean;
+begin
+   result:= FACBrNFe.Configuracoes.WebServices.AmbienteCodigo = 1;
 end;
 
 function TServicoDocumentoFiscalEletronico.Cancelar( SeqNotaFiscal,

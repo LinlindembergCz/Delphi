@@ -9,93 +9,148 @@ uses uClassNotaFiscal, DB, Dialogs, SysUtils, pcnProcNFe, pcnNFe, DateUtils,
 type
    TControllerDocumentoFiscalEletronico = class
    private
+     FCodigoEmpresa: string;
+     FCNPJCPFEmp:string;
+     FSeqNotaFiscal: string;
+     FSerie: string;
+     FEspecie: string;
+     FDataEmissao:TDatetime;
+     FEmailArquivoXML:string;
+     FSenhaMaster : Boolean;
+     FDataHoraContingencia:TDatetime;
      pvoDAONfe: IDAONFe;
      FPastaXML: string;
      gACBrNFe : TACBrNFe;
      FServicoNFC : TServicoDocumentoFiscalNFC;
      function ImprimirDanfe( proNotaFiscal : TNotaFiscal ): Boolean;
-     function Enviar( seqNotaFiscal, especie, serie: string  ):boolean; overload;//function
+     function Enviar( prsSeqNotaFiscal,
+                      prsEspecie,
+                      prsSerie: string;
+                      var prbContingencia: boolean ):boolean; overload;//function
      function Enviar( proNotaFiscal : TNotaFiscal ):boolean; overload;//function
    public
-     constructor Create(proDAONFe : IDAONFe);
+     constructor Create(proDAONFe : IDAONFe;
+                        prsCodigoEmpresa: string;
+                        prsCNPJCPFEmp:string);overload;
+     constructor Create(proDAONFe : IDAONFe;
+                        prsCodigoEmpresa: string;
+                        prsCNPJCPFEmp:string;
+                        prsSeqNotaFiscal: string;
+                        prsSerie: string;
+                        prsEspecie: string;
+                        prdDataEmissao:TDatetime;
+                        prsEmailArquivoXML:string;
+                        prbSenhaMaster : Boolean);overload;
      destructor Destroy;override;
-     procedure GerarNFC( proNotaFiscal: TNotaFiscal );
-     procedure GerarNFE( proNotaFiscal: TNotaFiscal );
-     procedure EnviarContingencia;
+     procedure GerarNFC( proNotaFiscal: TNotaFiscal;var prbContingencia:boolean   );
+     procedure GerarNFE( proNotaFiscal: TNotaFiscal;var prbContingencia:boolean  );
+     function EnviarContingencia:boolean;
      procedure Cancelar(prsSeqNotaFiscal,
                         prsEspecie,
                         prsSerie,
                         prsChaveAcesso,
                         prsProtocolo: String);
-     function Inutilizar(Seqnotafiscal1,
-                          Seqnotafiscal2,
-                          Especie,
-                          Serie,
+     function Inutilizar(prsSeqnotafiscal1,
+                          prsSeqnotafiscal2,
+                          prsEspecie,
+                          prsSerie,
                           Mensagem: string;
                           UpdateStatus : boolean = true):boolean;
-
    end;
 
 implementation
 
 uses
-uClassFactoryServicoDocumentoFiscalEletronico, uMenu, uClassConexao, UFuncoes, 
-  Classes, DBClient, ACBrNFeDANFEFR, Windows, ACBrUtil ;
+uClassFactoryServicoDocumentoFiscalEletronico, uMenu, uClassConexao, UFuncoes,
+  Classes, DBClient, ACBrNFeDANFEFR, Windows, ACBrUtil;
 
 { TControllerDocumentoFiscalEletronico }
 
-constructor TControllerDocumentoFiscalEletronico.Create(proDAONFe : IDAONFe);
+constructor TControllerDocumentoFiscalEletronico.Create(proDAONFe : IDAONFe;
+                                                        prsCodigoEmpresa: string;
+                                                        prsCNPJCPFEmp:string;
+                                                        prsSeqNotaFiscal: string;
+                                                        prsSerie: string;
+                                                        prsEspecie: string;
+                                                        prdDataEmissao:TDatetime;
+                                                        prsEmailArquivoXML:string;
+                                                        prbSenhaMaster : Boolean);
 begin
-   FPastaXML := gsPath+ 'Enviar\NFe\Individuais\'+gsCNPJCPFEmp+'\'+FormatDatetime('MM-YYYY', date);
    pvoDAONfe := proDAONFe;
+   FCodigoEmpresa:= prsCodigoEmpresa;
+   FCNPJCPFEmp:=prsCNPJCPFEmp;
+   FSeqNotaFiscal:= prsSeqNotaFiscal;
+   FSerie:= prsSerie;
+   FEspecie:= prsEspecie;
+   FDataEmissao:=prdDataEmissao;
+   FEmailArquivoXML := prsEmailArquivoXML;
+   FSenhaMaster := prbSenhaMaster;
+   FPastaXML := gsPath+ 'Enviar\NFe\Individuais\'+FCNPJCPFEmp+'\'+FormatDatetime('MM-YYYY', date);
+end;
+
+constructor TControllerDocumentoFiscalEletronico.Create(proDAONFe : IDAONFe;
+                                                        prsCodigoEmpresa: string;
+                                                        prsCNPJCPFEmp:string);
+begin
+   pvoDAONfe := proDAONFe;
+   FCodigoEmpresa:= prsCodigoEmpresa;
+   FCNPJCPFEmp:=prsCNPJCPFEmp;
+   FPastaXML := gsPath+ 'Enviar\NFe\Individuais\'+FCNPJCPFEmp+'\'+FormatDatetime('MM-YYYY', date);
 end;
 
 destructor TControllerDocumentoFiscalEletronico.Destroy;
 begin
-  if FServicoNFC <> nil then
-  FServicoNFC.free;
+  //if FServicoNFC <> nil then FServicoNFC.free;
   //if pvoDAONfe <> nil then pvoDAONfe.free;
 end;
 
-procedure TControllerDocumentoFiscalEletronico.GerarNFC( proNotaFiscal: TNotaFiscal );
+procedure TControllerDocumentoFiscalEletronico.GerarNFC( proNotaFiscal: TNotaFiscal ; var prbContingencia:boolean );
 var
   lsErros    : string;
   lbContingencia : boolean;
 begin
    try
-
      //prepara um serviço que implmenta o ACBR
      FServicoNFC := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( proNotaFiscal, FPastaXML, true );
      //Se não houver conexao com a internet ou o serviço da sefaz não responder gerar NFC em modo contingencia
-     lbContingencia := not VerificaConexaoInternet;
+     lbContingencia := (not VerificaConexaoInternet) or (prbContingencia);
      if lbContingencia then
      begin
-        FServicoNFC.ConfigurarContingencia(proNotaFiscal.Data_Emissao);
+        if FDataHoraContingencia = 0 then
+           FDataHoraContingencia:= now;
+        FServicoNFC.ConfigurarContingencia(FDataHoraContingencia);
+     end
+     else
+     begin
+        FDataHoraContingencia := 0;
      end;
      //Geração do XML na pasta Enviar
      try
         FServicoNFC.Gerar(lsErros);
 
         if lsErros <> '' then
-           raise Exception.create('Problema(s) na Pre-Validãcao: '+ lsErros );
+           raise Exception.create('Problema(s) na Pre-Validação: '+ lsErros );
 
         if ( not lbContingencia ) then//Só envia a nota se não estiver em contigencia, ou seja, on-line.
         begin//Enviar a Nota Fiscal
            if Enviar( proNotaFiscal ) then
               ImprimirDanfe( proNotaFiscal );
+           if ( FEmailArquivoXML <> '' ) then
+           begin
+             FServicoNFC.EnviarEmailNF( FEmailArquivoXML );
+           end;
         end
         else
         begin
-           pvoDAONfe.AlterarNFE_Status( gsCod_Emp,
-                                       proNotaFiscal.SeqNotaFiscal,
-                                       proNotaFiscal.Especie,
-                                       proNotaFiscal.Serie,
-                                       '',
-                                       '',
-                                       FServicoNFC.GetChaveAcesso,//<<Captura a chave de acesso gerado pelo ACBR
-                                       'G',
-                                       '9');
-           ImprimirDanfe( proNotaFiscal );
+           pvoDAONfe.AlterarNFE_Status( FCodigoEmpresa,
+                                        FSeqNotaFiscal,
+                                        FEspecie,
+                                        FSerie,
+                                        '',
+                                        '',
+                                        FServicoNFC.GetChaveAcesso,//<<Captura a chave de acesso gerado pelo ACBR
+                                        'G',
+                                        '9');
         end;
      Except
         On E: Exception Do
@@ -104,79 +159,77 @@ begin
         end;
      end;
   finally
-     if FServicoNFC <> nil then FServicoNFC.free;
+     //if FServicoNFC <> nil then FServicoNFC.free;
   end;
 end;
 
-function TControllerDocumentoFiscalEletronico.Enviar( proNotaFiscal : TNotaFiscal ):boolean;
+function TControllerDocumentoFiscalEletronico.Enviar( proNotaFiscal : TNotaFiscal):boolean;
+var
+  lbContingencia:boolean;
 begin
   result:= false;
-  if Enviar( proNotaFiscal.SeqNotaFiscal, proNotaFiscal.ESPECIE, proNotaFiscal.SERIE)then
+  if Enviar( FSeqNotaFiscal, FESPECIE, FSERIE, lbContingencia )then
   begin
      result:= true;
-     if proNotaFiscal.Cliente.EmailArquivoXML <> '' then
+     if lbContingencia then
      begin
-        FServicoNFC.EnviarEmailNF( proNotaFiscal.Cliente.EmailArquivoXML );
+       FServicoNFC.free;
+       GerarNFC(proNotaFiscal, lbContingencia );
      end;
-  end;
+   end;
 end;
 
-function TControllerDocumentoFiscalEletronico.Enviar( seqNotaFiscal, especie, serie: string ):boolean;
+function TControllerDocumentoFiscalEletronico.Enviar( prsSeqNotaFiscal,
+                                                      prsEspecie,
+                                                      prsSerie: string;
+                                                      var prbContingencia:boolean ):boolean;
 var
   Retorno    : TProcNFe;
-
+  lsErros    : string;
+  lsArquivoXML: string;
 begin
    result := false;
-   try
-      try
-         if FServicoNFC.Enviar( pvoDAONfe.GetSeqLoteNFe(gsCod_Emp) ) then
+    try
+       if FServicoNFC.Enviar( pvoDAONfe.GetSeqLoteNFe(FCodigoEmpresa) ) then
+       begin
+          result := true;
+          //Obter o retorno da Nota
+          Retorno  := FServicoNFC.GetRetorno;
+          //Enviar email
+          pvoDAONfe.AlterarNFE_Status( FCodigoEmpresa,
+                                      prsSeqNotaFiscal,
+                                      prsEspecie,
+                                      prsSerie,
+                                      Retorno.nProt,
+                                      datetimetostr(Retorno.dhRecbto),
+                                      FServicoNFC.GetChaveAcesso, //<<Captura a chave de acesso gerado pelo ACBR
+                                      '',
+                                      ifthen( prsEspecie = 'NFC','X' ,'F') );
+       end;
+    Except
+       On E: Exception Do
+       Begin
+         if ( Pos('Inativo ou Inoperante', E.message) > 0 )  or  ( Pos('Requisição não enviada', E.message) > 0 ) then
          begin
+            //Apaga o XML gerado e retornará True para gerar o XML em modo contingencia (9)
+            lsArquivoXML:= FServicoNFC.GetFileNameXML(FServicoNFC.GetChaveAcesso);
+            if FileExists( lsArquivoXML )  then
+               DeleteFile( Pchar( lsArquivoXML ) );
+            prbContingencia:= true;
             result := true;
-            //Obter o retorno da Nota
-            Retorno  := FServicoNFC.GetRetorno;
-            //Enviar email
-            pvoDAONfe.AlterarNFE_Status( gsCod_Emp,
-                                        seqNotaFiscal,
-                                        especie,
-                                        serie,
-                                        Retorno.nProt,
-                                        datetimetostr(Retorno.dhRecbto),
-                                        FServicoNFC.GetChaveAcesso, //<<Captura a chave de acesso gerado pelo ACBR
-                                        '',
-                                        ifthen( especie = 'NFC','X' ,'F') );
-         end;
-      Except
-         On E: Exception Do
-         Begin
+         end
+         else
+         begin
            Retorno  := FServicoNFC.GetRetorno;
-           if ( Pos('Inativo ou Inoperante', E.message) > 0 ) then
-           begin
-              pvoDAONfe.AlterarSequenciaLoteNFe( gsCod_Emp );
-
-              pvoDAONfe.AlterarNFE_Status( gsCod_Emp,
-                                          seqNotaFiscal,
-                                          especie,
-                                          serie,
-                                          '',
-                                          '',
-                                          FServicoNFC.GetChaveAcesso,//<<Captura a chave de acesso gerado pelo ACBR
-                                          'G',
-                                          '9');
-           end
-           else
            if ( Pos('Rejeicao', E.message) > 0 ) or ( Not ( Retorno.cStat in [100, 150]) ) then
            begin
-             Inutilizar( seqNotaFiscal,seqNotaFiscal, especie, serie, E.message );
-           end;
-           CaixaMensagem( E.message, ctAviso, [cbOk], 0 );
+              Inutilizar( prsSeqNotaFiscal, prsSeqNotaFiscal, prsEspecie, prsSerie, E.message );
+           end
+           else
+              CaixaMensagem( E.message, ctAviso, [cbOk], 0 );
          end;
-      end;
-      //realizar impressao danfe
-
-   finally
-      if Retorno     <> nil then
-         Retorno.free;
-   end;
+       end;
+    end;
 end;
 
 function TControllerDocumentoFiscalEletronico.ImprimirDanfe(  proNotaFiscal : TNotaFiscal ): Boolean;
@@ -198,11 +251,11 @@ begin
              CaixaMensagem('Não encontrada nota fiscal', ctErro, [ cbOk ], 0);
              Exit;
          end;
-       
-         lsAnoMes := FormatDatetime('mm-yyyy', date );
+
+         lsAnoMes := FormatDatetime('mm-yyyy', FDataEmissao );
          lsChaveNfe := FServicoNFC.GetChaveAcesso;
          lsChaveNfe := lsChaveNfe + Modulo11( lsChaveNfe );
-         lsCNPJ := gsCNPJCPFEmp;
+         lsCNPJ := FCNPJCPFEmp;
 
          gACBrNFe := TACBrNFe.Create(nil);
          gACBrNFe.NotasFiscais.LoadFromFile(gsPath + 'Enviar\NFe\Individuais\'+lsCNPJ+'\'+lsAnoMes+'\'+lsChaveNfe+'-nfe.xml', false);
@@ -224,15 +277,14 @@ begin
 
          ACBrNFcDANFEFR := TACBrNFeDANFEFR.Create(nil);
          ACBrNFcDANFEFR.FastFile := lsCaminhoDanfe;
-         ACBrNFcDANFEFR.MostrarPreview := False;
+         If FSenhaMaster Then
+            ACBrNFcDANFEFR.MostrarPreview := True
+         else
+            ACBrNFcDANFEFR.MostrarPreview := False;
          gACBrNFe.DANFE := ACBrNFcDANFEFR;
          gACBrNFe.NotasFiscais.Imprimir;
-
-
          //FServicoNFC.ImprimirDanfe;
-
          Result := True;
-
       except
          on E: Exception do
          begin
@@ -247,85 +299,92 @@ begin
    end;
 end;
 
-function TControllerDocumentoFiscalEletronico.Inutilizar(Seqnotafiscal1,
-                                                         Seqnotafiscal2,
-                                                         Especie,
-                                                         Serie,
+function TControllerDocumentoFiscalEletronico.Inutilizar(prsSeqnotafiscal1,
+                                                         prsSeqnotafiscal2,
+                                                         prsEspecie,
+                                                         prsSerie,
                                                          Mensagem: string;
                                                          UpdateStatus : boolean = true):boolean;
 var
    Retorno    : TProcNFe;
 begin
-   Try
-     Try//Inutilizar a nota fiscal
-        Retorno  := FServicoNFC.GetRetorno;
-        if FServicoNFC.Inutilizar( gsCNPJCPFEmp,
-                                         ifthen( Especie = 'NFC','65' ,'55'),
-                                         Serie,
-                                         inttostr( yearOf(Date)),
-                                         Seqnotafiscal1,
-                                         Seqnotafiscal2,
-                                         Mensagem) then
-         begin
-            result := true;
-            if UpdateStatus then
-            begin
-              pvoDAONfe.AlterarNFE_Status( gsCod_Emp,
-              seqNotaFiscal1,
-              especie,
-              serie,
-              Retorno.nProt,
-              FServicoNFC.GetChaveAcesso,//<<Captura a chave de acesso gerado pelo ACBR
-              Retorno.xMotivo ,
-              'C',
-              'Z' );
-            end;
-         end;
-     except
-        On E: Exception Do
-        Begin
-           CaixaMensagem('Erro: ' + E.Message, ctErro, [ cbOk ], 0);
-        End;
-     End;
-   finally
+   Try//Inutilizar a nota fiscal
+      if FServicoNFC = nil then      
+         FServicoNFC   := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( nil , FPastaXML, TRUE );
+         
+      if FServicoNFC.Inutilizar( FCNPJCPFEmp,
+                                 ifthen( prsEspecie = 'NFC','65' ,'55'),
+                                 prsSerie,
+                                 inttostr( yearOf(Date)),
+                                 prsSeqnotafiscal1,
+                                 prsSeqnotafiscal2,
+                                 Mensagem) then
+       begin
+          result := true;
+          if UpdateStatus then
+          begin
+            Retorno  := FServicoNFC.GetRetorno;
 
-   end;
+            pvoDAONfe.AlterarNFE_Status( FCodigoEmpresa,
+            prsSeqNotaFiscal1,
+            prsEspecie,
+            prsSerie,
+            Retorno.nProt,
+            FServicoNFC.GetChaveAcesso,//<<Captura a chave de acesso gerado pelo ACBR
+            '' ,
+            'C',
+            'Z' );
+          end;
+       end;
+   except
+      On E: Exception Do
+      Begin
+         CaixaMensagem('Erro: ' + E.Message, ctErro, [ cbOk ], 0);
+      End;
+   End;
 end;
 
-procedure TControllerDocumentoFiscalEletronico.EnviarContingencia;
+function TControllerDocumentoFiscalEletronico.EnviarContingencia:boolean;
 var
     lcdsNotasFiscaisContingencia : TDataSet;
     lsSequencia, lsEspecieNF , lsSerieNF, lsNFEChaveAcesso: String;
     lsArquivo : string;
+    lbContingencia:boolean;
 begin
-   try
-      FServicoNFC    := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( nil , FPastaXML, false );
-      lcdsNotasFiscaisContingencia := pvoDAONfe.RetornarNotasFiscaisContingencia(gsCod_Emp);
-      with lcdsNotasFiscaisContingencia do
-      begin
-         first;
-         while Not Eof do
-         begin
-            try
-               lsSequencia      := FieldByName( 'SeqNotaFiscal' ).AsString;
-               lsEspecieNF      := FieldByName( 'Especie' ).AsString;
-               lsSerieNF        := FieldByName( 'Serie' ).AsString;
-               lsNFEChaveAcesso := FieldByName( 'NFE_ChaveAcesso' ).AsString;
-               lsArquivo        :=  FServicoNFC.GetFileNameXML(lsNFEChaveAcesso);
-               if FileExists( lsArquivo ) then
-                   FServicoNFC.LoadFromFile(lsArquivo)//Carregar o Arquivo XML
-               else
-                   Raise Exception.Create('Arquivo de Contingência não existe: '+ lsArquivo);
-               Enviar( lsSequencia, lsEspecieNF, lsSerieNF );
-            finally
-               Next;
-            end;
-         end;
-      end;
-   finally
-      lcdsNotasFiscaisContingencia.free;
-      FServicoNFC.free;
-   end;
+  result := false;
+  FServicoNFC    := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( nil , FPastaXML, false );
+  lcdsNotasFiscaisContingencia := pvoDAONfe.RetornarNotasFiscaisContingencia(FCodigoEmpresa);
+  with lcdsNotasFiscaisContingencia do
+  begin
+     first;
+     //Inicilizar Data para todas as contingencia
+     FDataEmissao     := FieldByName( 'Data_Cad' ).AsDateTime;
+     while Not Eof do
+     begin
+        try
+           try
+             FSeqNotaFiscal   := FieldByName( 'SeqNotaFiscal' ).AsString;
+             FEspecie         := FieldByName( 'Especie' ).AsString;
+             FSerie           := FieldByName( 'Serie' ).AsString;
+
+             lsNFEChaveAcesso := FieldByName( 'NFE_ChaveAcesso' ).AsString;
+             lsArquivo        :=  FServicoNFC.GetFileNameXML(lsNFEChaveAcesso);
+             if FileExists( lsArquivo ) then
+                 FServicoNFC.LoadFromFile(lsArquivo)//Carregar o Arquivo XML
+             else
+                 Raise Exception.Create('Arquivo de Contingência não existe: '+ lsArquivo);
+             result := Enviar( FSeqNotaFiscal, FEspecie, FSerie, lbContingencia );
+           except
+              On E: Exception Do
+              Begin
+                 CaixaMensagem('Erro: ' + E.Message, ctErro, [ cbOk ], 0);
+              End;
+           end;
+        finally
+           Next;
+        end;
+     end;
+  end;
 end;
 
 procedure TControllerDocumentoFiscalEletronico.Cancelar(prsSeqNotaFiscal,
@@ -336,39 +395,39 @@ procedure TControllerDocumentoFiscalEletronico.Cancelar(prsSeqNotaFiscal,
 var
   lsLoteNFe,
   Justificativa: string;
-begin
-   try
-      FServicoNFC   := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( nil , FPastaXML, TRUE );
-      lsLoteNFe     := pvoDAONfe.GetSeqLoteNFe(gsCod_Emp);
-
-      Justificativa := 'Cancelamento de Nota Fiscal Eletronica ao consumidor';
-
-      if FServicoNFC.Cancelar( prsSeqNotaFiscal,
-                            prsEspecie,
-                            prsSerie ,
-                            prsChaveAcesso,
-                            Justificativa,
-                            prsProtocolo,
-                            lsLoteNFe ) then
-       begin
-           pvoDAONfe.AlterarNFE_Status( gsCod_Emp,
-                                       prsSeqNotaFiscal,
-                                       prsEspecie,
-                                       prsSerie,
-                                       '',
-                                       '',
-                                       '',
-                                       'C',
-                                       'C');
-       end;
-
-   finally
-     FServicoNFC.free;
+begin  
+  FServicoNFC   := TFactoryServicoDocumentoFiscalEletronico.FactoryServicoNFC( nil , FPastaXML, TRUE );
+  lsLoteNFe     := pvoDAONfe.GetSeqLoteNFe(FCodigoEmpresa);
+  Justificativa := 'Cancelamento de Nota Fiscal Eletronica ao consumidor';
+  try
+     if FServicoNFC.Cancelar( prsSeqNotaFiscal,
+                              prsEspecie,
+                              prsSerie ,
+                              prsChaveAcesso,
+                              Justificativa,
+                              prsProtocolo,
+                              lsLoteNFe ) then
+     begin
+        pvoDAONfe.AlterarNFE_Status( FCodigoEmpresa,
+                                      prsSeqNotaFiscal,
+                                      prsEspecie,
+                                      prsSerie,
+                                      '',
+                                      '',
+                                      '',
+                                      'C',
+                                      'C');
+     end;
+   except
+      On E: Exception Do
+      Begin
+         CaixaMensagem('Erro: ' + E.Message, ctErro, [ cbOk ], 0);
+      End;
    end;
 end;
 
-procedure TControllerDocumentoFiscalEletronico.GerarNFE(
-  proNotaFiscal: TNotaFiscal);
+procedure TControllerDocumentoFiscalEletronico.GerarNFE( proNotaFiscal: TNotaFiscal;
+                                                         var prbContingencia:boolean );
 var
   ServicoNFE : TServicoDocumentoFiscalNFE;
 begin

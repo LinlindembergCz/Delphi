@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{CD77BB5F-3912-45F2-9EFE-7A36D6594D06}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="aurelius.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="dclaurelius.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="aurelius">
+			<MSBuild Projects="aurelius.dproj"/>
+		</Target>
+		<Target Name="aurelius:Clean">
+			<MSBuild Projects="aurelius.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="aurelius:Make">
+			<MSBuild Projects="aurelius.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="dclaurelius">
+			<MSBuild Projects="dclaurelius.dproj"/>
+		</Target>
+		<Target Name="dclaurelius:Clean">
+			<MSBuild Projects="dclaurelius.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="dclaurelius:Make">
+			<MSBuild Projects="dclaurelius.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="aurelius;dclaurelius"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="aurelius:Clean;dclaurelius:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="aurelius:Make;dclaurelius:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

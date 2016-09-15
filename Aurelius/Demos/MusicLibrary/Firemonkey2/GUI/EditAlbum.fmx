@@ -1,0 +1,107 @@
+object frmEditAlbum: TfrmEditAlbum
+  Left = 0
+  Top = 0
+  Caption = 'Album'
+  ClientHeight = 148
+  ClientWidth = 400
+  Position = poScreenCenter
+  Visible = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  ActiveControl = edName
+  StyleLookup = 'backgroundstyle'
+  object TopLabel: TLabel
+    Align = alTop
+    Width = 400.000000000000000000
+    Height = 40.000000000000000000
+    TabOrder = 0
+    Font.Style = [fsBold]
+    TextAlign = taCenter
+    Text = 'Album'
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Position.Point = '(0,108)'
+    Width = 400.000000000000000000
+    Height = 40.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Width = 400.000000000000000000
+      Height = 40.000000000000000000
+      Margins.Rect = '(0,8,8,8)'
+      object btCancel: TButton
+        Align = alMostRight
+        Position.Point = '(312,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btCancelClick
+        TabOrder = 0
+        Text = 'Cancel'
+      end
+      object btSave: TButton
+        Align = alRight
+        Position.Point = '(224,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        OnClick = btSaveClick
+        TabOrder = 1
+        Text = 'Save'
+        Default = True
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Position.Point = '(0,40)'
+    Width = 400.000000000000000000
+    Height = 68.000000000000000000
+    object NameLayout: TLayout
+      Align = alTop
+      Width = 400.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object edName: TEdit
+        Align = alClient
+        Position.Point = '(68,8)'
+        Width = 324.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        KeyboardType = vktDefault
+        Password = False
+      end
+      object lbName: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 60.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Name:'
+      end
+    end
+    object YearLayout: TLayout
+      Align = alTop
+      Position.Point = '(0,30)'
+      Width = 400.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object edYear: TEdit
+        Align = alClient
+        Position.Point = '(68,8)'
+        Width = 324.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        KeyboardType = vktDefault
+        Password = False
+      end
+      object lbYear: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 60.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Year:'
+      end
+    end
+  end
+end

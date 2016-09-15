@@ -1,0 +1,309 @@
+object frmEditVideo: TfrmEditVideo
+  Left = 0
+  Top = 0
+  ActiveControl = edName
+  Caption = 'Video'
+  ClientHeight = 280
+  ClientWidth = 475
+  Position = poScreenCenter
+  FormFactor.Width = 1920
+  FormFactor.Height = 976
+  FormFactor.Devices = [dkDesktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object TopLabel: TLabel
+    Align = alTop
+    Font.Style = [fsBold]
+    Height = 40.000000000000000000
+    Text = 'Video'
+    TextAlign = taCenter
+    Width = 475.000000000000000000
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Height = 40.000000000000000000
+    Position.Y = 240.000000000000000000
+    Width = 475.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Height = 40.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Width = 475.000000000000000000
+      object btCancel: TButton
+        Align = alMostRight
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 387.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Cancel'
+        Width = 80.000000000000000000
+        OnClick = btCancelClick
+      end
+      object btSave: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Position.X = 299.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Save'
+        Width = 80.000000000000000000
+        OnClick = btSaveClick
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Height = 200.000000000000000000
+    Position.Y = 40.000000000000000000
+    Width = 475.000000000000000000
+    object NameLayout: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Width = 475.000000000000000000
+      object edName: TEdit
+        Align = alClient
+        DisableFocusEffect = False
+        KeyboardType = vktDefault
+        Password = False
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 339.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object lbName: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Name:'
+        Width = 120.000000000000000000
+      end
+    end
+    object CenterLayout2: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 30.000000000000000000
+      Width = 475.000000000000000000
+      object edFileLocation: TEdit
+        Align = alClient
+        DisableFocusEffect = False
+        KeyboardType = vktDefault
+        Password = False
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 312.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object lbFileLocation: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'File Location:'
+        Width = 120.000000000000000000
+      end
+      object btFile: TSpeedButton
+        Align = alRight
+        Height = 22.000000000000000000
+        Padding.Left = 5.000000000000000000
+        Position.X = 445.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 22.000000000000000000
+        OnClick = btFileClick
+        object Image1: TImage
+          Align = alClient
+          Bitmap.PNG = {
+            89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+            61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            01FE49444154384F6D933F6B145114C5CFAC902C2142B4B08812FC00E21FD268
+            23360A767E82A4B64811AC538A85B5885845F04B68216261A56823117520C980
+            EB64DDCCCE6E266F9F2FEF79EE9DDDD9C932172EF3E6EEFB9D77EEDD791118A1
+            B71950BC83B71ECE1878E701DF82731681294FC956FB12CEAE3CC4FCF246249C
+            842E427235E0E27DAE36E10FD630487F22FE91E0C68327AC2D4EF652B483DF1F
+            B6B17C27AE045AD35FE7B87C863317DE444B57E2A8CD13DFBF7A0C0C7658B7CC
+            9CD982398CA78856662284AD20254BE6789863F7E36B9E9CB1D0058A14D25D3D
+            4A8199A20A18969D839305411C75E08EF6596B10705E2C4EC2208493201C790A
+            0C14B4B964D2EC404E2A839419F2F9475B105D6F838223C92CC11C47957E5ED7
+            3625B405B53986FD719FCBB7F8479873D414D0E47B30FD0EDA6D20F9BA5DF955
+            8113D9C59305364586C3DDE7252C6D882982A66FD4DCE2ADDEA939540E26F068
+            D8E3C69E0A480B636D58C2923AF3DAD055C0B2053979029B9C023AC05244E1A2
+            74D328E08C3D059B414D4084C6ADC85F78FEC55E8383918C80D679B2C0B690BB
+            205EE55B28B38A9D83A616285083C5AE5A9DF968A4F6E5E65D2C2C4DF574060B
+            E7AE23FDD54537F1C8F9C59AB180F07A0BE824E74B2633E1DD5A59DDAA14AA5B
+            15421AFE7E7F89F8D353EC7FCB74F3B5DB1B58BDF708D1FCE56A5FAD195DFE07
+            5B6468D7A1CA72E00000000049454E44AE426082}
+          Height = 22.000000000000000000
+          HitTest = False
+          Width = 22.000000000000000000
+        end
+      end
+    end
+    object Layout1: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 60.000000000000000000
+      Width = 475.000000000000000000
+      object cbFormat: TComboBox
+        Align = alClient
+        DisableFocusEffect = False
+        Height = 22.000000000000000000
+        ItemIndex = -1
+        ListBoxResource = 'transparentlistboxstyle'
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 312.000000000000000000
+      end
+      object lbFormat: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Format:'
+        Width = 120.000000000000000000
+      end
+      object btNewFormat: TSpeedButton
+        Align = alRight
+        Height = 22.000000000000000000
+        Padding.Left = 5.000000000000000000
+        Position.X = 445.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = '+'
+        Width = 22.000000000000000000
+        OnClick = btNewFormatClick
+      end
+    end
+    object Layout2: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 120.000000000000000000
+      Width = 475.000000000000000000
+      object cbAlbum: TComboBox
+        Align = alClient
+        DisableFocusEffect = False
+        Height = 22.000000000000000000
+        ItemIndex = -1
+        ListBoxResource = 'transparentlistboxstyle'
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 312.000000000000000000
+      end
+      object lbAlbum: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Album:'
+        Width = 120.000000000000000000
+      end
+      object btNewAlbum: TSpeedButton
+        Align = alRight
+        Height = 22.000000000000000000
+        Padding.Left = 5.000000000000000000
+        Position.X = 445.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = '+'
+        Width = 22.000000000000000000
+        OnClick = btNewAlbumClick
+      end
+    end
+    object Layout3: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 90.000000000000000000
+      Width = 475.000000000000000000
+      object cbArtist: TComboBox
+        Align = alClient
+        DisableFocusEffect = False
+        Height = 22.000000000000000000
+        ItemIndex = -1
+        ListBoxResource = 'transparentlistboxstyle'
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 312.000000000000000000
+      end
+      object lbArtist: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Artist:'
+        Width = 120.000000000000000000
+      end
+      object btNewArtist: TSpeedButton
+        Align = alRight
+        Height = 22.000000000000000000
+        Padding.Left = 5.000000000000000000
+        Position.X = 445.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = '+'
+        Width = 22.000000000000000000
+        OnClick = btNewArtistClick
+      end
+    end
+    object Layout4: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 150.000000000000000000
+      Width = 475.000000000000000000
+      object edDurationMinutes: TEdit
+        Align = alLeft
+        DisableFocusEffect = False
+        KeyboardType = vktNumberPad
+        Password = False
+        Position.X = 128.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 40.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object lbDuration: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Duration:'
+        Width = 120.000000000000000000
+      end
+      object edDurationSeconds: TEdit
+        Align = alLeft
+        DisableFocusEffect = False
+        KeyboardType = vktNumberPad
+        Password = False
+        Position.X = 188.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 40.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object Label1: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 168.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = ':'
+        TextAlign = taCenter
+        Width = 20.000000000000000000
+      end
+    end
+  end
+end

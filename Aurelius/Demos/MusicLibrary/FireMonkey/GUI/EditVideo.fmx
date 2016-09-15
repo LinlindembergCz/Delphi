@@ -1,0 +1,285 @@
+object frmEditVideo: TfrmEditVideo
+  Left = 0
+  Top = 0
+  Caption = 'Video'
+  ClientHeight = 280
+  ClientWidth = 475
+  Position = poScreenCenter
+  Visible = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  ActiveControl = edName
+  StyleLookup = 'backgroundstyle'
+  object TopLabel: TLabel
+    Align = alTop
+    Width = 475.000000000000000000
+    Height = 40.000000000000000000
+    TabOrder = 0
+    Font.Style = [fsBold]
+    TextAlign = taCenter
+    Text = 'Video'
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Position.Point = '(0,240)'
+    Width = 475.000000000000000000
+    Height = 40.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Width = 475.000000000000000000
+      Height = 40.000000000000000000
+      Margins.Rect = '(0,8,8,8)'
+      object btCancel: TButton
+        Align = alMostRight
+        Position.Point = '(387,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btCancelClick
+        TabOrder = 0
+        Text = 'Cancel'
+      end
+      object btSave: TButton
+        Align = alRight
+        Position.Point = '(299,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        OnClick = btSaveClick
+        TabOrder = 1
+        Text = 'Save'
+        Default = True
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Position.Point = '(0,40)'
+    Width = 475.000000000000000000
+    Height = 200.000000000000000000
+    object NameLayout: TLayout
+      Align = alTop
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object edName: TEdit
+        Align = alClient
+        Position.Point = '(128,8)'
+        Width = 339.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        KeyboardType = vktDefault
+        Password = False
+      end
+      object lbName: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Name:'
+      end
+    end
+    object CenterLayout2: TLayout
+      Align = alTop
+      Position.Point = '(0,30)'
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object edFileLocation: TEdit
+        Align = alClient
+        Position.Point = '(128,8)'
+        Width = 312.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        KeyboardType = vktDefault
+        Password = False
+      end
+      object lbFileLocation: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'File Location:'
+      end
+      object btFile: TSpeedButton
+        Align = alRight
+        Position.Point = '(445,8)'
+        Width = 22.000000000000000000
+        Height = 22.000000000000000000
+        Padding.Rect = '(5,0,0,0)'
+        OnClick = btFileClick
+        TabOrder = 2
+        object Image1: TImage
+          Align = alClient
+          Width = 22.000000000000000000
+          Height = 22.000000000000000000
+          HitTest = False
+          Bitmap.PNG = {
+            89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+            61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            00097048597300000EC300000EC301C76FA8640000022C49444154384F7D934F
+            649B7118C79FCDD44E315333B3C354C5EC503DECB0F30E3BECB4F32EB143CD0E
+            3D4C55CDE4505535533351551513131515111555252222222222E2F5AA888878
+            45C46B5211AF7A7DF7FDBDF9FBA6D95E7EF2C6FB7E3ECFF7797EBF578417CCCF
+            407315766D0596E645BFBC8C7EC98BEBC23374734F606616D14E79D0C9BD8065
+            04A018D785E60A802DAE16ECF61BFCA92CA1185BE0FF7DAEA3C9B2B761A496FE
+            25F0F345FFF8A1762A48851E025DA64380EB3B60EFA01693FF0B46925258707E
+            700FF58B470E088B09AFD771159D2768A816060946827C5090F829A89E791C10
+            A60F37AD77D023730437F5E753824DDEDBC81C08E2FB023D7AC701ADFA6BF4AE
+            5EA27232476055978702C2FD4FBC3790FC2188ED0934020AEC96BD30F38F9D16
+            DA459F7B0E3DED29A1016C9BEFF91BC2C537C1E9B6A01CE22E136C67EEC3B814
+            341282E2AF9914DD320735847BCDB730F55748EC084EBEF0E52319836A074CD3
+            44E1784660163C4EE5116C14BC88FB05E10D413E20CED655393CFDF74090A7D4
+            75905AD905175C4B2E22CAEAA175414E0D92A0C6D815565682DCE18CA099E403
+            C6569515ACC5EF22B229087E1464390B059609A9257B2564B943AE04B573F639
+            059738F908E307D70499DD09EC087C97C8B02D97408FB3CF616505AB43A404C7
+            1F6E0B4A9414D9924BD048AF22C79869464BD3AE96121C5290640275A854D534
+            4FA6823BDAE49B198B80363AFA2EF2E107887E657CCEA070C6236CD56F7F3C53
+            E5FF02D83C191A99244C840000000049454E44AE426082}
+        end
+      end
+    end
+    object Layout1: TLayout
+      Align = alTop
+      Position.Point = '(0,60)'
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object cbFormat: TComboBox
+        Align = alClient
+        Position.Point = '(128,8)'
+        Width = 312.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        ItemIndex = -1
+      end
+      object lbFormat: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Format:'
+      end
+      object btNewFormat: TSpeedButton
+        Align = alRight
+        Position.Point = '(445,8)'
+        Width = 22.000000000000000000
+        Height = 22.000000000000000000
+        Padding.Rect = '(5,0,0,0)'
+        OnClick = btNewFormatClick
+        TabOrder = 2
+        Text = '+'
+      end
+    end
+    object Layout2: TLayout
+      Align = alTop
+      Position.Point = '(0,120)'
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object cbAlbum: TComboBox
+        Align = alClient
+        Position.Point = '(128,8)'
+        Width = 312.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        ItemIndex = -1
+      end
+      object lbAlbum: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Album:'
+      end
+      object btNewAlbum: TSpeedButton
+        Align = alRight
+        Position.Point = '(445,8)'
+        Width = 22.000000000000000000
+        Height = 22.000000000000000000
+        Padding.Rect = '(5,0,0,0)'
+        OnClick = btNewAlbumClick
+        TabOrder = 2
+        Text = '+'
+      end
+    end
+    object Layout3: TLayout
+      Align = alTop
+      Position.Point = '(0,90)'
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object cbArtist: TComboBox
+        Align = alClient
+        Position.Point = '(128,8)'
+        Width = 312.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        ItemIndex = -1
+      end
+      object lbArtist: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Artist:'
+      end
+      object btNewArtist: TSpeedButton
+        Align = alRight
+        Position.Point = '(445,8)'
+        Width = 22.000000000000000000
+        Height = 22.000000000000000000
+        Padding.Rect = '(5,0,0,0)'
+        OnClick = btNewArtistClick
+        TabOrder = 2
+        Text = '+'
+      end
+    end
+    object Layout4: TLayout
+      Align = alTop
+      Position.Point = '(0,150)'
+      Width = 475.000000000000000000
+      Height = 30.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object edDurationMinutes: TEdit
+        Align = alLeft
+        Position.Point = '(128,8)'
+        Width = 40.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 0
+        KeyboardType = vktNumberPad
+        Password = False
+      end
+      object lbDuration: TLabel
+        Align = alLeft
+        Position.Point = '(8,8)'
+        Width = 120.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        Text = 'Duration:'
+      end
+      object edDurationSeconds: TEdit
+        Align = alLeft
+        Position.Point = '(188,8)'
+        Width = 40.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 2
+        KeyboardType = vktNumberPad
+        Password = False
+      end
+      object Label1: TLabel
+        Align = alLeft
+        Position.Point = '(168,8)'
+        Width = 20.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 3
+        TextAlign = taCenter
+        Text = ':'
+      end
+    end
+  end
+end

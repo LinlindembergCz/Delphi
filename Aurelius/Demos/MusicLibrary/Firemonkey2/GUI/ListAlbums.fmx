@@ -1,0 +1,130 @@
+object frmListAlbums: TfrmListAlbums
+  Left = 0
+  Top = 0
+  Caption = 'Albums'
+  ClientHeight = 460
+  ClientWidth = 500
+  Position = poScreenCenter
+  FormFactor.Width = 1920
+  FormFactor.Height = 976
+  FormFactor.Devices = [dkDesktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object TopLabel: TLabel
+    Align = alTop
+    Font.Style = [fsBold]
+    Height = 40.000000000000000000
+    Text = 'Albums'
+    TextAlign = taCenter
+    Width = 500.000000000000000000
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Height = 40.000000000000000000
+    Position.Y = 420.000000000000000000
+    Width = 500.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Height = 40.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Width = 500.000000000000000000
+      object btClose: TButton
+        Align = alMostRight
+        Cancel = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        ModalResult = 2
+        Padding.Left = 8.000000000000000000
+        Position.X = 412.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Close'
+        Width = 80.000000000000000000
+      end
+      object btEdit: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 148.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Edit'
+        Width = 80.000000000000000000
+        OnClick = btEditClick
+      end
+      object btNew: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 324.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'New'
+        Width = 80.000000000000000000
+        OnClick = btNewClick
+      end
+      object btDelete: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 236.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Delete'
+        Width = 80.000000000000000000
+        OnClick = btDeleteClick
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Height = 380.000000000000000000
+    Position.Y = 40.000000000000000000
+    Width = 500.000000000000000000
+    object Grid: TStringGrid
+      Touch.InteractiveGestures = [igPan]
+      Align = alClient
+      Height = 370.000000000000000000
+      Padding.Left = 5.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 5.000000000000000000
+      Padding.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      StyleLookup = 'gridstyle'
+      Width = 490.000000000000000000
+      OnDblClick = GridDblClick
+      ReadOnly = True
+      RowCount = 5
+      RowHeight = 21.000000000000000000
+      ShowSelectedCell = False
+      object StringColumn1: TStringColumn
+        Header = 'Name'
+        Height = 345.000000000000000000
+        Width = 260.000000000000000000
+      end
+      object StringColumn2: TStringColumn
+        Header = 'Year'
+        Height = 345.000000000000000000
+        Position.X = 260.000000000000000000
+        Width = 65.000000000000000000
+      end
+      object StringColumn3: TStringColumn
+        Header = 'Duration'
+        Height = 345.000000000000000000
+        Position.X = 325.000000000000000000
+        Width = 65.000000000000000000
+      end
+      object StringColumn4: TStringColumn
+        Header = 'Total Files'
+        Height = 345.000000000000000000
+        Position.X = 390.000000000000000000
+        Width = 65.000000000000000000
+      end
+    end
+  end
+end

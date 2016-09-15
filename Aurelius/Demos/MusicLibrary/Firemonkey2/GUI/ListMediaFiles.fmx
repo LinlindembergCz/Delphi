@@ -1,0 +1,154 @@
+object frmListMediaFiles: TfrmListMediaFiles
+  Left = 0
+  Top = 0
+  Caption = 'Media Files'
+  ClientHeight = 400
+  ClientWidth = 850
+  Position = poScreenCenter
+  FormFactor.Width = 1920
+  FormFactor.Height = 976
+  FormFactor.Devices = [dkDesktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object TopLabel: TLabel
+    Align = alTop
+    Font.Style = [fsBold]
+    Height = 40.000000000000000000
+    Text = 'Media Files'
+    TextAlign = taCenter
+    Width = 850.000000000000000000
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Height = 40.000000000000000000
+    Position.Y = 360.000000000000000000
+    Width = 850.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Height = 40.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Width = 850.000000000000000000
+      object btClose: TButton
+        Align = alMostRight
+        Cancel = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        ModalResult = 2
+        Padding.Left = 8.000000000000000000
+        Position.X = 762.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Close'
+        Width = 80.000000000000000000
+      end
+      object btEdit: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 410.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Edit'
+        Width = 80.000000000000000000
+        OnClick = btEditClick
+      end
+      object btNewSong: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 586.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'New Song'
+        Width = 80.000000000000000000
+        OnClick = btNewSongClick
+      end
+      object btDelete: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 498.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Delete'
+        Width = 80.000000000000000000
+        OnClick = btDeleteClick
+      end
+      object btNewVideo: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 674.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'New Video'
+        Width = 80.000000000000000000
+        OnClick = btNewVideoClick
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Height = 320.000000000000000000
+    Position.Y = 40.000000000000000000
+    Width = 850.000000000000000000
+    object Grid: TStringGrid
+      Touch.InteractiveGestures = [igPan]
+      Align = alClient
+      Height = 310.000000000000000000
+      Padding.Left = 5.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 5.000000000000000000
+      Padding.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      StyleLookup = 'gridstyle'
+      Width = 840.000000000000000000
+      OnDblClick = GridDblClick
+      ReadOnly = True
+      RowCount = 5
+      RowHeight = 21.000000000000000000
+      ShowSelectedCell = False
+      object StringColumn1: TStringColumn
+        Header = 'Type'
+        Height = 285.000000000000000000
+        Width = 50.000000000000000000
+      end
+      object StringColumn2: TStringColumn
+        Header = 'Name'
+        Height = 285.000000000000000000
+        Position.X = 50.000000000000000000
+        Width = 160.000000000000000000
+      end
+      object StringColumn3: TStringColumn
+        Header = 'Artist'
+        Height = 285.000000000000000000
+        Position.X = 210.000000000000000000
+        Width = 140.000000000000000000
+      end
+      object StringColumn4: TStringColumn
+        Header = 'Album'
+        Height = 285.000000000000000000
+        Position.X = 350.000000000000000000
+        Width = 130.000000000000000000
+      end
+      object StringColumn5: TStringColumn
+        Header = 'Duration'
+        Height = 285.000000000000000000
+        Position.X = 480.000000000000000000
+        Width = 60.000000000000000000
+      end
+      object StringColumn6: TStringColumn
+        Header = 'File Location'
+        Height = 285.000000000000000000
+        Position.X = 540.000000000000000000
+        Width = 250.000000000000000000
+      end
+    end
+  end
+end

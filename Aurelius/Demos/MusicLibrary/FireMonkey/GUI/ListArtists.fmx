@@ -1,0 +1,148 @@
+object frmListArtists: TfrmListArtists
+  Left = 0
+  Top = 0
+  Caption = 'Artists'
+  ClientHeight = 354
+  ClientWidth = 371
+  Position = poScreenCenter
+  Visible = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  StyleLookup = 'backgroundstyle'
+  object TopLabel: TLabel
+    Align = alTop
+    Width = 371.000000000000000000
+    Height = 40.000000000000000000
+    TabOrder = 0
+    Font.Style = [fsBold]
+    TextAlign = taCenter
+    Text = 'Artists'
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Position.Point = '(0,314)'
+    Width = 371.000000000000000000
+    Height = 40.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Width = 371.000000000000000000
+      Height = 40.000000000000000000
+      Margins.Rect = '(0,8,8,8)'
+      object btClose: TButton
+        Align = alMostRight
+        Position.Point = '(283,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        TabOrder = 0
+        ModalResult = 2
+        Text = 'Close'
+        Cancel = True
+      end
+      object btEdit: TButton
+        Align = alRight
+        Position.Point = '(19,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btEditClick
+        TabOrder = 1
+        Text = 'Edit'
+        Default = True
+      end
+      object btNew: TButton
+        Align = alRight
+        Position.Point = '(195,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btNewClick
+        TabOrder = 2
+        Text = 'New'
+        Default = True
+      end
+      object btDelete: TButton
+        Align = alRight
+        Position.Point = '(107,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btDeleteClick
+        TabOrder = 3
+        Text = 'Delete'
+        Default = True
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Position.Point = '(0,40)'
+    Width = 371.000000000000000000
+    Height = 274.000000000000000000
+    object Grid: TStringGrid
+      Align = alClient
+      Position.Point = '(5,5)'
+      Width = 361.000000000000000000
+      Height = 264.000000000000000000
+      Padding.Rect = '(5,5,5,5)'
+      OnDblClick = GridDblClick
+      StyleLookup = 'gridstyle'
+      TabOrder = 0
+      RowHeight = 21.000000000000000000
+      ShowSelectedCell = False
+      ReadOnly = True
+      RowCount = 5
+      object StringColumn1: TStringColumn
+        Width = 200.000000000000000000
+        Height = 241.000000000000000000
+        TabOrder = 0
+        Header = 'Name'
+      end
+      object StringColumn2: TStringColumn
+        Position.Point = '(200,0)'
+        Width = 120.000000000000000000
+        Height = 241.000000000000000000
+        TabOrder = 1
+        Header = 'Genre'
+      end
+    end
+  end
+  object BindScope1: TBindScope
+    AutoActivate = False
+    Left = 32
+    Top = 8
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    UseAppManager = True
+    Left = 88
+    Top = 8
+    object BindGridList1: TBindGridList
+      Category = 'Lists'
+      ControlComponent = Grid
+      SourceComponent = BindScope1
+      ColumnExpressions = <
+        item
+          ColumnIndex = 0
+          FormatCellExpressions = <
+            item
+              ControlExpression = 'Cells[0]'
+              SourceExpression = 'Current.ArtistName'
+            end>
+          FormatColumnExpressions = <>
+        end
+        item
+          ColumnIndex = 1
+          FormatCellExpressions = <
+            item
+              ControlExpression = 'Cells[1]'
+              SourceExpression = 'Current.Genre'
+            end>
+          FormatColumnExpressions = <>
+        end>
+      FormatControlExpressions = <>
+      ClearControlExpressions = <>
+    end
+  end
+end

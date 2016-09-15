@@ -1,0 +1,316 @@
+object frmConnectionDialog: TfrmConnectionDialog
+  Left = 0
+  Top = 0
+  Caption = 'Connection Configuration'
+  ClientHeight = 295
+  ClientWidth = 483
+  Position = poScreenCenter
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object BottomLayout: TLayout
+    Align = alBottom
+    Position.Point = '(0,255)'
+    Width = 483.000000000000000000
+    Height = 40.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Width = 483.000000000000000000
+      Height = 40.000000000000000000
+      Margins.Rect = '(0,8,8,8)'
+      object btCancel: TButton
+        Align = alMostRight
+        Position.Point = '(395,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        Padding.Rect = '(8,0,0,0)'
+        OnClick = btCancelClick
+        TabOrder = 0
+        Text = 'Cancel'
+        Cancel = True
+      end
+      object btOk: TButton
+        Align = alRight
+        Position.Point = '(307,8)'
+        Width = 80.000000000000000000
+        Height = 24.000000000000000000
+        OnClick = btOkClick
+        TabOrder = 1
+        Text = 'Ok'
+        Default = True
+      end
+    end
+  end
+  object TopLabel: TLabel
+    Align = alTop
+    Width = 483.000000000000000000
+    Height = 40.000000000000000000
+    TabOrder = 1
+    Font.Style = [fsBold]
+    TextAlign = taCenter
+    Text = 'Database Connection'
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Position.Point = '(0,40)'
+    Width = 483.000000000000000000
+    Height = 215.000000000000000000
+    object Layout1: TLayout
+      Align = alTop
+      Width = 483.000000000000000000
+      Height = 34.000000000000000000
+      Margins.Rect = '(8,8,8,0)'
+      object Label1: TLabel
+        Position.Point = '(9,9)'
+        Width = 160.000000000000000000
+        Height = 15.000000000000000000
+        TabOrder = 0
+        Text = 'Component library to use:'
+      end
+      object cbLibrary: TComboBox
+        Position.Point = '(184,6)'
+        Width = 153.000000000000000000
+        Height = 22.000000000000000000
+        TabOrder = 1
+        ItemIndex = -1
+        OnChange = cbLibraryChange
+        object ListBoxItem1: TListBoxItem
+          Position.Point = '(5000,5000)'
+          Width = 19.000000000000000000
+          Height = 19.000000000000000000
+          HitTest = False
+          TabOrder = 0
+          Text = 'SQLite (Native)'
+        end
+        object ListBoxItem2: TListBoxItem
+          Position.Point = '(5000,5000)'
+          Width = 19.000000000000000000
+          Height = 19.000000000000000000
+          HitTest = False
+          TabOrder = 1
+          Text = 'dbGo (ADO)'
+        end
+        object ListBoxItem3: TListBoxItem
+          Position.Point = '(5000,5000)'
+          Width = 19.000000000000000000
+          Height = 19.000000000000000000
+          HitTest = False
+          TabOrder = 2
+          Text = 'dbExpress'
+        end
+      end
+    end
+    object TabControl1: TTabControl
+      Align = alClient
+      Position.Point = '(5,39)'
+      Width = 473.000000000000000000
+      Height = 171.000000000000000000
+      Padding.Rect = '(5,5,5,5)'
+      TabOrder = 1
+      TabIndex = 3
+      TabHeight = 20.000000000000000000
+      object tsSQLite: TTabItem
+        Width = 80.000000000000000000
+        Height = 20.000000000000000000
+        TabOrder = 0
+        Index = 0
+        Text = 'SQLite (Native)'
+        WordWrap = False
+        object lbInfo: TLabel
+          Align = alBottom
+          Position.Point = '(5,130.5)'
+          Width = 463.000000000000000000
+          Height = 15.500000000000000000
+          Padding.Rect = '(5,5,5,5)'
+          TabOrder = 0
+          AutoSize = True
+          VertTextAlign = taLeading
+          Text = 
+            'Specify the SQLite database file. If the file does not exist, it' +
+            ' will be created.'
+          WordWrap = False
+        end
+        object Layout3: TLayout
+          Align = alTop
+          Width = 473.000000000000000000
+          Height = 30.000000000000000000
+          Margins.Rect = '(8,8,8,0)'
+          object edSQLiteFile: TEdit
+            Align = alClient
+            Position.Point = '(103,8)'
+            Width = 332.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 0
+            KeyboardType = vktDefault
+            Password = False
+          end
+          object Label6: TLabel
+            Align = alLeft
+            Position.Point = '(8,8)'
+            Width = 95.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 1
+            Text = 'Database File:'
+            WordWrap = False
+          end
+          object btOpenDialog: TButton
+            Align = alRight
+            Position.Point = '(440,8)'
+            Width = 25.000000000000000000
+            Height = 22.000000000000000000
+            Padding.Rect = '(5,0,0,0)'
+            OnClick = btOpenDialogClick
+            TabOrder = 2
+            Text = '...'
+          end
+        end
+      end
+      object tsDbGo: TTabItem
+        Position.Point = '(80,0)'
+        Width = 80.000000000000000000
+        Height = 20.000000000000000000
+        TabOrder = 1
+        Index = 1
+        Text = 'dbGo (ADO)'
+        WordWrap = False
+        object Label2: TLabel
+          Align = alBottom
+          Position.Point = '(5,56)'
+          Width = 463.000000000000000000
+          Height = 52.000000000000000000
+          Padding.Rect = '(5,5,5,5)'
+          TabOrder = 0
+          VertTextAlign = taLeading
+          Text = 
+            'Provide a connection string to connect to an existing database. ' +
+            'User name and password must be already set in the connection. IT' +
+            #39'S RECOMMENDED that you don'#39't use a production database. '
+        end
+        object Layout2: TLayout
+          Align = alTop
+          Width = 473.000000000000000000
+          Height = 30.000000000000000000
+          Margins.Rect = '(8,8,8,0)'
+          object edConnectionString: TEdit
+            Align = alClient
+            Position.Point = '(128,8)'
+            Width = 307.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 0
+            KeyboardType = vktDefault
+            Password = False
+          end
+          object Label5: TLabel
+            Align = alLeft
+            Position.Point = '(8,8)'
+            Width = 120.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 1
+            Text = 'Connection String:'
+            WordWrap = False
+          end
+          object btEditConnectionString: TButton
+            Align = alRight
+            Position.Point = '(440,8)'
+            Width = 25.000000000000000000
+            Height = 22.000000000000000000
+            Padding.Rect = '(5,0,0,0)'
+            OnClick = btEditConnectionStringClick
+            TabOrder = 2
+            Text = '...'
+          end
+        end
+        object Label7: TLabel
+          Align = alBottom
+          Position.Point = '(5,118)'
+          Width = 463.000000000000000000
+          Height = 28.000000000000000000
+          Padding.Rect = '(5,5,5,5)'
+          TabOrder = 2
+          VertTextAlign = taLeading
+          Text = 
+            'Note: Only MS SQL Server and DB2 databases are supported in dbGo' +
+            ' connections'
+        end
+      end
+      object tsDbExpress: TTabItem
+        Position.Point = '(160,0)'
+        Width = 80.000000000000000000
+        Height = 20.000000000000000000
+        TabOrder = 2
+        Index = 2
+        Text = 'dbExpress'
+        WordWrap = False
+        object Label3: TLabel
+          Align = alBottom
+          Position.Point = '(5,90)'
+          Width = 463.000000000000000000
+          Height = 56.000000000000000000
+          Padding.Rect = '(5,5,5,5)'
+          TabOrder = 0
+          VertTextAlign = taLeading
+          Text = 
+            'Choose an existing dbExpress connection that is properly configu' +
+            'red to connect to an existing database. User name and password m' +
+            'ust be already set in the connection. IT'#39'S RECOMMENDED that you ' +
+            'don'#39't use a production database.'
+        end
+        object ConnectionNameLayout: TLayout
+          Align = alTop
+          Width = 473.000000000000000000
+          Height = 30.000000000000000000
+          Margins.Rect = '(8,8,8,0)'
+          object cbConnectionName: TComboBox
+            Align = alClient
+            Position.Point = '(128,8)'
+            Width = 337.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 0
+            ItemIndex = -1
+          end
+          object lbConnectionName: TLabel
+            Align = alLeft
+            Position.Point = '(8,8)'
+            Width = 120.000000000000000000
+            Height = 22.000000000000000000
+            TabOrder = 1
+            Text = 'Connection Name:'
+            WordWrap = False
+          end
+        end
+      end
+      object tsNoSettings: TTabItem
+        Position.Point = '(240,0)'
+        Width = 80.000000000000000000
+        Height = 20.000000000000000000
+        TabOrder = 3
+        Index = 3
+        Text = 'No Settings'
+        WordWrap = False
+        object Memo1: TMemo
+          Align = alClient
+          Position.Point = '(5,5)'
+          Width = 463.000000000000000000
+          Height = 141.000000000000000000
+          Padding.Rect = '(5,5,5,5)'
+          TabOrder = 0
+          ReadOnly = True
+          Text = 
+            'Library not available. Either the library is not supported in cu' +
+            'rrent environment, or you '#13#10'must manually activate it.'#13#10'To activ' +
+            'ate, open DBConnection.pas and define one of the following direc' +
+            'tives depending '#13#10'on the library you want to activate:'#13#10#13#10'{$DEFI' +
+            'NE DBEXPRESS} // To use dbExpress'#13#10'{$DEFINE DBGO} // To use dbGo' +
+            '/ADO'
+          KeyboardType = vktDefault
+        end
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.sqlite'
+    Filter = 'SQLite (*.sqlite)|*.sqlite|All Files (*.*)|*.*'
+    Left = 224
+    Top = 136
+  end
+end

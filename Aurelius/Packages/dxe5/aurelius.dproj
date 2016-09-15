@@ -1,0 +1,364 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{64BE6FD2-1169-45DB-9673-8BB279386C4C}</ProjectGuid>
+        <MainSource>aurelius.dpk</MainSource>
+        <ProjectVersion>15.1</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>7</TargetedPlatforms>
+        <AppType>Package</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
+        <Base_Android>true</Base_Android>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_1)'=='true') or '$(Cfg_1_OSX32)'!=''">
+        <Cfg_1_OSX32>true</Cfg_1_OSX32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_2)'=='true') or '$(Cfg_2_OSX32)'!=''">
+        <Cfg_2_OSX32>true</Cfg_2_OSX32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Trial' or '$(Cfg_3)'!=''">
+        <Cfg_3>true</Cfg_3>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_3)'=='true') or '$(Cfg_3_OSX32)'!=''">
+        <Cfg_3_OSX32>true</Cfg_3_OSX32>
+        <CfgParent>Cfg_3</CfgParent>
+        <Cfg_3>true</Cfg_3>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_3)'=='true') or '$(Cfg_3_Win32)'!=''">
+        <Cfg_3_Win32>true</Cfg_3_Win32>
+        <CfgParent>Cfg_3</CfgParent>
+        <Cfg_3>true</Cfg_3>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_3)'=='true') or '$(Cfg_3_Win64)'!=''">
+        <Cfg_3_Win64>true</Cfg_3_Win64>
+        <CfgParent>Cfg_3</CfgParent>
+        <Cfg_3>true</Cfg_3>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DllSuffix>xe5</DllSuffix>
+        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+        <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <GenPackage>true</GenPackage>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_Description>TMS Aurelius - Core Package</DCC_Description>
+        <GenDll>true</GenDll>
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Android)'!=''">
+        <VerInfo_Keys>package=com.embarcadero.$(MSBuildProjectName);label=$(MSBuildProjectName);versionCode=1;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=preferExternal;largeHeap=False;theme=TitleBar</VerInfo_Keys>
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DllSuffix>xe5</DllSuffix>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_3)'!=''">
+        <DCC_Define>TRIAL;$(DCC_Define)</DCC_Define>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_3_OSX32)'!=''">
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=$(MSBuildProjectName);CFBundleVersion=1.0.0.0;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_3_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_3_Win64)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="rtl.dcp"/>
+        <DCCReference Include="dbrtl.dcp"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Bind.Dataset.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Bind.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.AbstractCommandPerformer.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.CommandPerformerFactory.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Deleter.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.ForeignKeyCreator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Inserter.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Listeners.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Selecter.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.SequenceCreator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.TableCreator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Commands.Updater.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Base.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Dictionary.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Expression.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Linq.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Criteria.Projections.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.Base.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.Interfaces.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.SQLite.Classes.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.SQLite.Import.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Drivers.SQLite.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.AbstractManager.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.DatabaseManager.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.ObjectFactory.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.ObjectManager.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Engine.ObjectMap.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Global.Config.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Global.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Global.Utils.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.AbstractGenerator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.Guid.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.IdentifierGenerator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.IdentityOrSequence.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Id.Uuid.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Json.Deserializer.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Json.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Json.Interfaces.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Json.Serializer.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Json.Settings.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Attributes.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.AttributeStrategy.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.AutoMapping.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.ClassHierarchyExplorer.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Explorer.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.MappedClasses.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Metadata.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Optimization.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.RttiUtils.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Setup.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Mapping.Strategy.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.AbstractImporter.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Commands.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.DB2.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.ElevateDB.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Firebird.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Interbase.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Interfaces.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Messages.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.MSSQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.MySQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.NexusDB.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Oracle.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.PostgreSQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Register.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.SQLite.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Schema.Utils.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.AbsoluteDB.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.AbstractSqlGenerator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.AnsiSqlGenerator.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.BaseTypes.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Commands.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.DB2.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.ElevateDB.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Firebird.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Interbase.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Interfaces.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Metadata.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.MSSQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.MySQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.NexusDB.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Oracle.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.PostgreSQL.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.Register.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Sql.SQLite.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.Blob.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.DynamicProperties.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.Exceptions.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.MasterObjectValue.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.Nullable.pas"/>
+        <DCCReference Include="..\..\source\core\Aurelius.Types.Proxy.pas"/>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Trial">
+            <Key>Cfg_3</Key>
+            <CfgParent>Cfg_2</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>Package</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">aurelius.dpk</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k190.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp190.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k190.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp190.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="Android">False</Platform>
+                <Platform value="iOSDevice">False</Platform>
+                <Platform value="iOSSimulator">False</Platform>
+                <Platform value="OSX32">True</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+</Project>

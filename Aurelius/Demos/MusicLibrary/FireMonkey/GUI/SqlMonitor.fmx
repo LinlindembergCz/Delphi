@@ -1,0 +1,40 @@
+object frmSqlMonitor: TfrmSqlMonitor
+  Left = 0
+  Top = 0
+  Caption = 'SQL Monitor'
+  ClientHeight = 300
+  ClientWidth = 490
+  Position = poScreenCenter
+  Visible = False
+  StyleLookup = 'backgroundstyle'
+  object Memo: TMemo
+    Align = alClient
+    Width = 490.000000000000000000
+    Height = 259.000000000000000000
+    TabOrder = 1
+    KeyboardType = vktDefault
+  end
+  object PanelBottom: TPanel
+    Align = alBottom
+    Position.Point = '(0,259)'
+    Width = 490.000000000000000000
+    Height = 41.000000000000000000
+    TabOrder = 2
+    object btClear: TButton
+      Position.Point = '(317,9)'
+      Width = 80.000000000000000000
+      Height = 22.000000000000000000
+      OnClick = btClearClick
+      TabOrder = 1
+      Text = 'Clear'
+    end
+    object btClose: TButton
+      Position.Point = '(403,9)'
+      Width = 80.000000000000000000
+      Height = 22.000000000000000000
+      OnClick = btCloseClick
+      TabOrder = 2
+      Text = 'Close'
+    end
+  end
+end

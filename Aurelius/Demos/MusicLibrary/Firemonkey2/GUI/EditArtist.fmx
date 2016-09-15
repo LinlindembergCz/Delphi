@@ -1,0 +1,117 @@
+object frmEditArtist: TfrmEditArtist
+  Left = 0
+  Top = 0
+  ActiveControl = edName
+  Caption = 'Artist'
+  ClientHeight = 148
+  ClientWidth = 400
+  Position = poScreenCenter
+  FormFactor.Width = 1920
+  FormFactor.Height = 976
+  FormFactor.Devices = [dkDesktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object TopLabel: TLabel
+    Align = alTop
+    Font.Style = [fsBold]
+    Height = 40.000000000000000000
+    Text = 'Artist'
+    TextAlign = taCenter
+    Width = 400.000000000000000000
+  end
+  object BottomLayout: TLayout
+    Align = alBottom
+    Height = 40.000000000000000000
+    Position.Y = 108.000000000000000000
+    Width = 400.000000000000000000
+    object ButtonLayout: TLayout
+      Align = alClient
+      Height = 40.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Width = 400.000000000000000000
+      object btCancel: TButton
+        Align = alMostRight
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Padding.Left = 8.000000000000000000
+        Position.X = 312.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Cancel'
+        Width = 80.000000000000000000
+        OnClick = btCancelClick
+      end
+      object btSave: TButton
+        Align = alRight
+        Default = True
+        DisableFocusEffect = False
+        Height = 24.000000000000000000
+        Position.X = 224.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Save'
+        Width = 80.000000000000000000
+        OnClick = btSaveClick
+      end
+    end
+  end
+  object CenterLayout: TLayout
+    Align = alClient
+    Height = 68.000000000000000000
+    Position.Y = 40.000000000000000000
+    Width = 400.000000000000000000
+    object NameLayout: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Width = 400.000000000000000000
+      object edName: TEdit
+        Align = alClient
+        DisableFocusEffect = False
+        KeyboardType = vktDefault
+        Password = False
+        Position.X = 68.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 324.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object lbName: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Name:'
+        Width = 60.000000000000000000
+      end
+    end
+    object CenterLayout2: TLayout
+      Align = alTop
+      Height = 30.000000000000000000
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 8.000000000000000000
+      Margins.Right = 8.000000000000000000
+      Position.Y = 30.000000000000000000
+      Width = 400.000000000000000000
+      object edGenre: TEdit
+        Align = alClient
+        DisableFocusEffect = False
+        KeyboardType = vktDefault
+        Password = False
+        Position.X = 68.000000000000000000
+        Position.Y = 8.000000000000000000
+        Width = 324.000000000000000000
+        Height = 22.000000000000000000
+      end
+      object lbGenre: TLabel
+        Align = alLeft
+        Height = 22.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Text = 'Genre:'
+        Width = 60.000000000000000000
+      end
+    end
+  end
+end

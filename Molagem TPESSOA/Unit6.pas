@@ -81,7 +81,7 @@ type
     FNumero: string;
     FBairro: TBairro;
   public
-     property Bairro: TList<TBairro> read FBairro write FBairro;
+     property Bairro: TBairro read FBairro write FBairro;
      property Rua: string read Frua write Frua;
      property Numero: string  read FNumero write FNumero;
   end;

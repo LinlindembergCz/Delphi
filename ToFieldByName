@@ -1,0 +1,73 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,Vcl.StdCtrls, DB;
+
+type
+  TForm1 = class(TForm)
+    Memo1: TMemo;
+    Button1: TButton;
+    ListBox1: TListBox;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+    Fiedl:TStringField;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+//Se houver algum tipo ou tratamento a mais, basta adicionar aqui...
+const props: array[0..11] of string = ('Value','AsString','AsFloat','AsDatetime',
+'AsInteger','AsCurrency','IsNull', 'FieldName','AsSQLTimeStamp','Size',
+'AsExtended','Text' ); //...
+var
+  linha: string;
+  I:integer;
+  DataSetName: string;
+  j: Integer;
+  TipoAsValue: string;
+  k: Integer;
+begin
+  for j := 0 to ListBox1.Items.Count -1 do
+  begin
+    DataSetName:=ListBox1.Items[j];
+    for I := 0 to Memo1.Lines.Count -1 do
+    begin
+       linha:= Memo1.Lines[i];
+       if (Pos(trim(DataSetName), linha) > 0) then
+       begin
+          for k := 0 to length(props)-1 do
+          begin
+            if (Pos(upperCase('.'+props[k]), upperCase(linha))>0) then
+            begin
+               TipoAsValue:= '.'+props[k];
+               break;
+            end;
+          end;
+
+          if TipoAsValue <> '' then
+          begin
+              if Pos( upperCase('FieldByName'),  upperCase(linha) ) = 0 then
+              begin
+                 linha:= stringReplace( linha, TipoAsValue, ''')'+TipoAsValue,[rfReplaceAll,rfIgnoreCase]);
+                 Memo1.Lines[i]:= stringReplace( linha, DataSetName,DataSetName + '.FieldByName(''' ,[rfReplaceAll,rfIgnoreCase]);
+              end;
+          end;
+       end;
+    end;
+  end;
+
+end;
+
+end.
